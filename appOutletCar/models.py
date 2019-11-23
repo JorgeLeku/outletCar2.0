@@ -50,11 +50,11 @@ class Coche(models.Model):
     modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=200, unique=True, default='a')
+    estado=models.CharField(max_length=100)
     def __str__(self):
         return self.n_bastidor
 
-    def body_preview(self):
-        return self.body[:50]
+
 
 
 class Usuario(models.Model):
