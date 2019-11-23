@@ -13,8 +13,16 @@ h1,h2,h3,h4,h5,h6 {
 .header .pure-menu {
     border-bottom-color: black;
     border-radius: 0;
+    font-weight: 550;
+    
 }
-
+.header .pure-menu-heading{
+    border-bottom-color: black;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(255, 190, 94);
+}
 .pure-menu-link {
     padding: 1em .7em;
 }
@@ -59,6 +67,7 @@ h1,h2,h3,h4,h5,h6 {
     .photo-box aside span {
         color: white;
         font-size:50px;
+        line-height: 10px;
     }
 
         .photo-box aside span a {
