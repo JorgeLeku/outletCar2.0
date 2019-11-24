@@ -14,6 +14,6 @@ class HomePageView(TemplateView):
         return context
 
 def listaCochesN(request):
-    coche = get_list_or_404(Coche.objects.order_by('n_bastidor'))
+    coche = get_list_or_404(Coche.objects.order_by('n_bastidor').filter(estado="Segunda mano"))
     context = { 'lista_cochesN': coche }
     return render(request, 'cochesNuevos.html', context)

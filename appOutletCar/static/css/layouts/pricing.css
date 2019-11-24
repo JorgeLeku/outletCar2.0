@@ -23,11 +23,22 @@ p {
 .l-content {
     margin: 0 auto;
 }
+.header {
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
+}
 
+.sidebar {
+    background: rgb(61, 79, 93);
+    color: #fff;
+}
 .l-box {
     padding: 0.5em 2em;
 }
-
+#layout {
+    padding: 0;
+}
 /*
  * -- MENU STYLES --
  * Make the menu have a very faint box-shadow.
@@ -213,7 +224,23 @@ p {
     .pricing-table {
         margin-bottom: 0;
     }
+    
 
+}
+@media (min-width: 48em) {
+    .content {
+        padding: 2em 3em 0;
+        margin-left: 25%;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+
+    .footer {
+        text-align: center;
+    }
 }
 
 /*

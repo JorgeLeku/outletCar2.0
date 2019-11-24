@@ -55,7 +55,7 @@ class Coche(models.Model):
         return self.n_bastidor
 class FotoCoche(models.Model):
     coche = models.ForeignKey(Coche, on_delete=models.CASCADE)
-    fotoCoche = models.ImageField(upload_to='static/img/coche', default='images/None/no-img.jpg')
+    fotoCoche = models.ImageField(upload_to='appOutletCar/static/img/coche', default='images/None/no-img.jpg')
     
     def __str__(self):
         return self.coche.n_bastidor+ " Imagen"
