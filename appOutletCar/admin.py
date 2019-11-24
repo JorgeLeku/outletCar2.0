@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Marca, Modelo, Coche, Usuario, Lugar, Comment 
+from .models import Marca, Modelo, Coche, Usuario, Lugar, Comment, FotoCoche 
 # Register your models here.
 
 class LugarAdmin(admin.ModelAdmin):
@@ -22,10 +22,15 @@ class ModeloAdmin(admin.ModelAdmin):
 admin.site.register(Modelo, ModeloAdmin)
 
 class CocheAdmin(admin.ModelAdmin):
-    list_display = ('n_bastidor', 'slug', 'color', 'anyo', 'n_km', 'combustible', 'potencia', 'precio', 'cambio', 'consumo', 'comentario', 'modelo', 'lugar', 'fotoCoche')
+    list_display = ('n_bastidor', 'slug', 'color', 'anyo', 'n_km', 'combustible', 'potencia', 'precio', 'cambio', 'consumo', 'comentario', 'modelo', 'lugar')
     search_fields = ['bastidor', 'content']
     prepopulated_fields = {'slug': ('n_bastidor',)}
 admin.site.register(Coche, CocheAdmin)
+
+class fotoCocheAdmin(admin.ModelAdmin):
+    list_display = ('coche', 'fotoCoche')
+    search_fields = ['coche', 'content']
+admin.site.register(FotoCoche, fotoCocheAdmin)
 
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ('correo', 'nombre_usuario', 'apellidos', 'telefono', 'contrasenya', 'coche')

@@ -35,6 +35,7 @@ class Modelo(models.Model):
         return self.nombre_Modelo
 
 
+
 class Coche(models.Model):
     n_bastidor = models.CharField(max_length=100, null=False, primary_key=True)
     color = models.CharField(max_length=100)
@@ -46,15 +47,18 @@ class Coche(models.Model):
     cambio = models.CharField(max_length=100)
     consumo = models.FloatField()
     comentario = models.CharField(max_length=1000)
-    fotoCoche = models.ImageField(upload_to='images/', default='images/None/no-img.jpg')
     modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=200, unique=True)
     estado=models.CharField(max_length=100)
     def __str__(self):
         return self.n_bastidor
-
-
+class FotoCoche(models.Model):
+    coche = models.ForeignKey(Coche, on_delete=models.CASCADE)
+    fotoCoche = models.ImageField(upload_to='static/img/coche', default='images/None/no-img.jpg')
+    
+    def __str__(self):
+        return self.coche.n_bastidor+ " Imagen"
 
 
 class Usuario(models.Model):
