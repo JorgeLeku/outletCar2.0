@@ -1,16 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
+{%extends 'base.html'%}
+
+<!--<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a responsive photo gallery.">    <title>Photo Gallery &ndash; Layout Examples &ndash; Pure</title>    
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    
+-->
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+       <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">-->
     <!--<![endif]-->
     
     
@@ -18,10 +18,14 @@
             <link rel="stylesheet" href="css/layouts/gallery-old-ie.css">
         <![endif]-->
         <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="../static/css/layouts/gallery.css">
+            <!--<link rel="stylesheet" href="../static/css/layouts/gallery.css">-->
         <!--<![endif]-->
 </head>
-<body>
+
+{% block contenido %}
+    
+
+
 
 <div>
     <div class="pure-g">
@@ -111,5 +115,5 @@
 </div>
 
 
-</body>
-</html>
+
+{% endblock contenido %}

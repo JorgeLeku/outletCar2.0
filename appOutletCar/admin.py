@@ -22,9 +22,9 @@ class ModeloAdmin(admin.ModelAdmin):
 admin.site.register(Modelo, ModeloAdmin)
 
 class CocheAdmin(admin.ModelAdmin):
-    list_display = ('n_bastidor', 'color', 'anyo', 'n_km', 'combustible', 'potencia', 'precio', 'cambio', 'consumo', 'comentario', 'modelo', 'lugar', 'fotoCoche')
+    list_display = ('n_bastidor', 'slug', 'color', 'anyo', 'n_km', 'combustible', 'potencia', 'precio', 'cambio', 'consumo', 'comentario', 'modelo', 'lugar', 'fotoCoche')
     search_fields = ['bastidor', 'content']
-  
+    prepopulated_fields = {'slug': ('n_bastidor',)}
 admin.site.register(Coche, CocheAdmin)
 
 class UsuarioAdmin(admin.ModelAdmin):

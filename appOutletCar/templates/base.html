@@ -6,16 +6,11 @@
     <meta name="description" content="A layout example that shows off a blog page with a list of posts.">    
     <title>{% block titulo %}outletCar &ndash;{% endblock %}</title>
     {% block css %}    
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
-            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
-            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
             <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
             <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
             <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
-        <!--<![endif]-->
+            
     {% load static %}
         <link rel="stylesheet" href="{% static 'css/layouts/gallery.css' %}">
     {% endblock %}
@@ -34,5 +29,9 @@
             </ul>
         </div>
     </div>
+    
+    {% block contenido %}
+        
+    {% endblock contenido %}
 </body>
 </html>

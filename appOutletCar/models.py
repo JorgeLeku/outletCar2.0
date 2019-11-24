@@ -49,7 +49,7 @@ class Coche(models.Model):
     fotoCoche = models.ImageField(upload_to='images/', default='images/None/no-img.jpg')
     modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
-    slug = models.SlugField(max_length=200, unique=True, default='a')
+    slug = models.SlugField(max_length=200, unique=True)
     estado=models.CharField(max_length=100)
     def __str__(self):
         return self.n_bastidor
