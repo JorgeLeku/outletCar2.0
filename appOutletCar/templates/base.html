@@ -20,11 +20,11 @@
 <body>
     <div class="header">
         <div class="pure-menu pure-menu-horizontal">
-            <a class="pure-menu-heading" href="">OUTLET CAR</a>
+            <a class="pure-menu-heading" href="{% url 'home'%}">OUTLET CAR</a>
 
             <ul class="pure-menu-list">
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">HOME</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">QUIENES SOMOS</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">QUIENES SOMOS</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">TIPOS DE COCHE</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">NUESTRAS MARCAS</a></li>
             </ul>
         </div>
@@ -33,5 +33,14 @@
     {% block contenido %}
         
     {% endblock contenido %}
+    <div class="footer">
+        <div class="pure-menu pure-menu-horizontal">
+            <ul>
+                <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>
+                <li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a></li>
+                <li class="pure-menu-item"><a href="http://github.com/pure-css/pure/" class="pure-menu-link">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
