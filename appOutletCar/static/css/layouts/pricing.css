@@ -26,7 +26,7 @@ p {
 .header {
     text-align: center;
     top: auto;
-    margin: 3em auto;
+    margin: 0em auto;
 }
 
 .sidebar {
@@ -97,6 +97,60 @@ p {
     text-align: center;
 }
 
+.header .pure-menu {
+    border-bottom-color: black;
+    border-radius: 0;
+    font-weight: 550;
+    
+}
+.header .pure-menu-heading{
+    border-bottom-color: black;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(255, 190, 94);
+}
+.header-sidebar {
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
+}
+.brand-title,
+.brand-tagline {
+    margin: 0;
+}
+.brand-title {
+    text-transform: uppercase;
+}
+.brand-tagline {
+    font-weight: 300;
+    color: rgb(176, 202, 219);
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.nav-item a {
+    background: transparent;
+    border: 2px solid rgb(176, 202, 219);
+    color: #fff;
+    margin-top: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 85%;
+}
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 2px solid rgb(61, 146, 201);
+    text-decoration: none;
+}
 /*
  * -- PRICING TABLE  --
  * Every pricing table has the .pricing-table class
@@ -222,14 +276,14 @@ p {
         font-size: 4em;
     }
     .pricing-table {
-        margin-bottom: 0;
+        margin-bottom: 2em;
     }
     
 
 }
 @media (min-width: 48em) {
     .content {
-        padding: 2em 3em 0;
+        padding: 0em 0em 10;
         margin-left: 25%;
     }
     .sidebar {
