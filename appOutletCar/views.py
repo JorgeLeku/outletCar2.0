@@ -13,7 +13,7 @@ class HomePageView(TemplateView):
         context['latest_articles'] = Coche.objects.all()[:5]
         return context
 
-def cochesNuevos(request):
+def listaCochesN(request):
     coche = get_list_or_404(Coche.objects.order_by('n_bastidor'))
     context = { 'lista_cochesN': coche }
     return render(request, 'cochesNuevos.html', context)
