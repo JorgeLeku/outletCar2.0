@@ -19,4 +19,4 @@ class FiltroCoches(django_filters.FilterSet):
 
 	def filter_by_order(self, queryset, name, value):
 		expression = 'n_bastidor' if value == 'ascending' else '-n_bastidor'
-		return queryset.order_by(expression)
+		return queryset.order_by(expression).filter(estado="Segunda mano")

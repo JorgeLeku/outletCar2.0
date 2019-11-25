@@ -137,6 +137,7 @@ p {
     *display: inline;
     zoom: 1;
 }
+
 .nav-item a {
     background: transparent;
     border: 2px solid rgb(176, 202, 219);
@@ -222,7 +223,14 @@ p {
     text-align: center;
 }
 
-
+.form{
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+} 
+.form .imput{
+    background-color: red;
+}
 /*
  * -- PRICING TABLE LIST ELEMENTS --
  * Styles for the individual list elements within each pricing table
