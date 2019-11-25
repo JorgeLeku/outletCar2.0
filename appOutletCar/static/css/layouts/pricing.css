@@ -227,9 +227,15 @@ p {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     font-weight: 600;
+    
 } 
-.form .imput{
-    background-color: red;
+.form-control{
+    padding: 0.2em;
+    border-radius: 5px;
+    border-block-start: none;
+    border-width: 0em;
+    margin: 1em;
+    color: black;
 }
 /*
  * -- PRICING TABLE LIST ELEMENTS --
