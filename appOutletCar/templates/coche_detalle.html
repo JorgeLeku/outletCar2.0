@@ -1,18 +1,42 @@
-{% load crispy_forms_tags %}
-{% extends 'base.html' %}
-{% block content %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top ">
-      <div class="card-body">
-      	<h1>{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
-        <p class=" text-muted">{{ coche.precio }}</p>
-        <img src="{{ coche.fotoCoche.url }}">
-        <p class="card-text ">{{ coche.comentario | safe }}</p>
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+{% extends "base.html" %}
+
+{% block titulo %}Detalles del coce{% endblock %}
+
+{% block contenido %}
+<div class="posts">
+    <h1 class="content-subhead">{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
+    {% if coche %}
+        <section class="post">
+            {% if coche.fotoCoche %}
+                {% load static %}
+                
+                <img alt="{{ coche.fotoCoche.fotoCoche }}" class="post-avatar" src="{% static coche.fotoCoche.fotoCoche %}" />
+               
+            {% endif %}
+            <header class="post-header">
+                <h2 class="post-title">{{ coche.modelo }}</h2>
+                <p class="post-meta">{{ coche.marca }}</p>
+            </header>
+            <div class="post-description">
+                <p>{{ coche.descripcion }}</p>
+            </div>
+        </section>
+    {% else %}
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title">No existe este post.</h2>
+                <p class="post-meta">No existe este post.</p>
+            </header>
+            <div class="post-description">
+                <p>No existe este post.</p>
+            </div>
+        </section>
+    {% endif %}
 </div>
-
-{% endblock content %}
+{% endblock %}
