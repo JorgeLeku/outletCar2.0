@@ -67,22 +67,3 @@ class FiltroCochesKm0(django_filters.FilterSet):
 	def filter_by_order(self, queryset, name, value):
 		expression = 'n_bastidor' if value == 'ascending' else '-n_bastidor'
 		return queryset.order_by(expression).filter(estado="Km0")
-
-class FiltroNuestrasMarcas(django_filters.FilterSet):
-
-	CHOICES = (
-		('ascending', 'Ascending'),
-		('descending', 'Descending')
-	)
-
-	ordering = django_filters.ChoiceFilter(label='Ordering', choices=CHOICES, method='filter_by_order')
-
-	class Meta:
-	 	model = Marca
-	 	fields= {
-	 	'nombre_Marca':['icontains']
-	 	}
-
-	 def filter_by_order(self, queryset, name):
-	  	expression = 'nombre_Marca' if value == 'ascending' else '-nombre_Marca'
-	  	return queryset.order_by(expression) 	

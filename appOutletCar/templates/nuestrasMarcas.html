@@ -1,5 +1,6 @@
-{% extends 'base.html' %}{% block contenido %}{% load static %}
-
+{% extends 'base.html' %}{% load static %}{% load bootstrap %}
+{% block title %}Lista Coche{% endblock title %}
+{% block contenido %}
 {% block css %}
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
@@ -10,85 +11,58 @@
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-md-1-4">
         <div class="header-sidebar">
-            <h1 class="brand-title">NUESTRAS</h1>
-            <h2 class="brand-tagline">MARCAS</h2>
+            <h1 class="brand-title" >BUSCA</h1>
+            <h2 class="brand-tagline">EL COCHE A TU MEDIDA</h2>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <form class="form" method="GET">
+                            {{filter.form|bootstrap}}
+                        <button class="pure-button" type="submit" >BUSCAR</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
 <div class="content pure-u-1 pure-u-md-3-4">
     <div class="pricing-tables pure-g">
+        {% if filter.qs %}
+            {% for coche in filter.qs %}
+                
+                <div class="pure-u-1 pure-u-md-1">
+                    <div class="pricing-table pricing-table-free">
+                        <div class="pricing-table-header">
+                            <h2>{{ coche.modelo.marca.nombre_Marca }}</h2>
+                            <span class="pricing-table-price">
+                                {{coche.modelo}}    <span>{{coche.precio}}</span>
+                            </span>
+                            
+                        </div>
+
+                        <ul class="pricing-table-list">
+                            <li>año: {{coche.anyo}}</li>
+                            <li>KM: {{coche.n_km}}</li>
+                            <li>Combustible: {{coche.combustible}}</li>
+                            <li>Cambio: {{coche.cambio}}</li>
+                            <li>Consumo: {{coche.consumo}}</li>
+                            <li>Lugar: {{coche.lugar.ciudad}}, {{coche.lugar.provincia}}</li>
+                        </ul>
+
+                        <button class="button-choose pure-button" href="{% url 'appOutletCar:detail' coche.n_bastidor %}">Choose</button>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        {% else %}
         <div class="pure-u-1 pure-u-md-1">
                 <div class="pricing-table pricing-table-free">
-                    
-                    <a href="{% url 'listaCochesN'%}">
-                        <img src="../static/img/audi.jpg"alt="Beach">
-                    </a>
-
                     <div class="pricing-table-header">
-                        <h2>Audi</h2>
-
-                        <span class="pricing-table-price">
-                            Audi es un fabricante de automóviles alemán que diseña, produce, comercializa y distribuye vehículos de lujo. Audi es miembro del Grupo Volkswagen y tiene sus raíces en Ingolstadt, Baviera, Alemania. Los vehículos con la marca Audi se producen en nueve plantas de producción en todo el mundo.<br/><br/>
-                            Los orígenes de la empresa son complejos, desde principios del siglo XX hasta las empresas iniciales (Horch y Audiwerke) fundadas por el ingeniero August Horch; y otros dos fabricantes (DKW y Wanderer), que llevaron a la fundación de Auto Union en 1932. La era moderna de Audi comenzó esencialmente en la década de 1960 cuando Volkswagen adquirió Auto Union de Daimler-Benz. Después de relanzar la marca Audi con la introducción en 1965 de la serie Audi F103, Volkswagen fusionó Auto Union con NSU Motorenwerke en 1969, creando así la forma actual de la compañía.<br/><br/>
-                            El nombre de la empresa se basa en la traducción latina del apellido del fundador, August Horch. "Horch", que significa "escuchar" en alemán, se convierte en "audi" en latín. Los cuatro anillos del logotipo de Audi representan cada uno de las cuatro compañías de automóviles que se unieron para crear la compañía predecesora de Audi, Auto Union. El lema de Audi es Vorsprung durch Technik, que significa "Estar por delante a través de la tecnología". Sin embargo, Audi USA había usado el eslogan "La verdad en la ingeniería" de 2007 a 2016, y no lo ha usado desde 2016. Audi, junto con sus colegas marques alemanes BMW y Mercedes-Benz, se encuentra entre las marcas de automóviles de lujo más vendidas en el mundo.<br/>
-                        </span>
-
-                        <a href="{% url 'listaCochesN'%}">
-                            <img src="../static/img/citroen.jpg"alt="Beach">
-                        </a>
-
-                        <h2>Citroen</h2>
-
-                        <span class="pricing-table-price">
-                            Citroën es una marca francesa constructora de automóviles fundada en 1919 por André Citroën. La marca creó entre otros modelos el utilitario Citroën H, el Citroën 2CV, el Citroën Mehari, el Citroën DS y también el Citroën CX.<br/><br/>
-                            Desde el año 1976 Citroën forma parte del Grupo PSA. Destacan también sus vehículos comerciales y de competición.<br/><br/>
-                            El logotipo de Citroën consiste en dos galones o espiguillas invertidas superpuestas (chevrones) y se inspiran en un invento de André, referente a un engranaje con los dientes en forma de V, que fueron montados en modelos de altas prestaciones de Citroën, y que aventaja en prestaciones a los engranajes de diente plano.<br/><br/>
-                            Citroën ha sido recompensado con numerosos premios por sus vehículos, por ejemplo: una vez Coche del Año de los Estados Unidos de América Motor Trend coche del año; 3 veces Coche del Año en Europa; 10 veces Coche del Año en España; y 8 veces Coche del Año en Italia o 3 veces como Coche del Año en Irlanda.<br/><br/>
-                            Citroën es el único constructor de automóviles que ha ganado tres campeonatos oficiales diferentes de la Federación Internacional del Automóvil: en Rally raid; en el Campeonato Mundial de Rally "WRC"; y en el Campeonato Mundial de Turismos "WTCC". Citroën es también el fabricante de automóviles que ha ganado más títulos de campeón del mundo: 15 títulos de campeón del mundo en 15 participaciones. Citroën obtuvo 5 veces el Campeonato Mundial de Rally Raid; 8 veces el Campeonato Mundial de Rally "WRC"; y 2 veces el Campeonato Mundial de Turismos "WTCC".<br/><br/>
-                            Desde 2013, la top model argentina Carolina "Pampita" Ardohain es elegida como representante de las marcas Citroën y DS Automobiles.<br/>
-                        </span>
-
-                        <a href="{% url 'listaCochesN'%}">
-                            <img src="../static/img/mercedes.jpg"alt="Beach">
-                        </a>
-
-                        <h2>Mercedes</h2>
-
-                        <span class="pricing-table-price">
-                            Mercedes-Benz es una empresa alemana fabricante de vehículos de lujo, división de la compañía Daimler AG (anteriormente conocida como Daimler-Benz y DaimlerChrysler). La marca es reconocida por sus vehículos de lujo, autobuses y camiones. Su eslogan es The best or nothing ("Lo mejor o nada").<br/><br/>
-                            Los más cercanos competidores de Mercedes-Benz en el mercado actual de coches de gama alta son Audi, Volvo, Alfa Romeo, BMW, Lincoln, Cadillac, Infiniti, Jaguar, Lexus, Acura. La famosa estrella de tres puntas, diseñada por Gottlieb Daimler, simboliza la capacidad de sus motores para emplearlos en tierra, mar y aire.<br/>
-                        </span>
-                        
-                        <a href="{% url 'listaCochesN'%}">
-                            <img src="../static/img/opel.jpg"alt="Beach">
-                        </a>
-
-                        <h2>Opel</h2>
-
-                        <span class="pricing-table-price">
-                            Opel Automobile GmbH es un fabricante de automóviles alemán, una filial del fabricante de automóviles francés Groupe PSA desde agosto de 2017. Desde 1929 hasta 2017, Opel fue propiedad del fabricante estadounidense de automóviles General Motors. Los vehículos Opel se venden en Gran Bretaña bajo la marca Vauxhall. Algunos vehículos Opel están diseñados con distintivos en Australia con la marca Holden, y en Norteamérica y China con las marcas Buick, Saturn y Cadillac.<br/><br/>
-                            Opel tiene sus raíces en un fabricante de máquinas de coser fundado por Adam Opel en 1862 en Rüsselsheim am Main. La compañía comenzó a fabricar bicicletas en 1886 y produjo su primer automóvil en 1899. Después de cotizar en el mercado de valores en 1929, General Motors adquirió una participación mayoritaria en Opel y luego control total en 1931, estableciendo el reinado estadounidense sobre el fabricante de automóviles alemán durante casi 90 años. años.<br/><br/>
-                            En marzo de 2017, Groupe PSA acordó adquirir Opel de General Motors por 2.200 millones de euros, convirtiendo al fabricante de automóviles francés en el segundo más grande de Europa, después de Volkswagen.<br/><br/>
-                            Opel tiene su sede en Rüsselsheim am Main, Hesse, Alemania. La empresa diseña, diseña, fabrica y distribuye vehículos de pasajeros, vehículos comerciales ligeros y piezas de vehículos con la marca Opel y, junto con su marca hermana británica Vauxhall, están presentes en más de 60 países de todo el mundo.<br/>
-                        </span>
-                        
-                        <a href="{% url 'listaCochesN'%}">
-                            <img src="../static/img/volskwagen.jpg"alt="Beach">
-                        </a>
-
-                        <h2>Volkswagen</h2>
-                            
-                        <span class="pricing-table-price">
-                            Volkswagen es un fabricante de automóviles alemán con sede en Wolfsburgo, Baja Sajonia (Alemania).​ Volkswagen es la marca original y más vendida del Grupo Volkswagen, el mayor fabricante de automóviles alemán y el segundo mayor fabricante de automóviles del mundo.<br/><br/>
-                            Volkswagen también es propietaria de las marcas Audi, Bentley, Bugatti, Ducati, Lamborghini, Porsche, SEAT y Skoda, así como el fabricante de camiones Scania y MAN.<br/><br/>
-                            Volkswagen significa «automóvil del pueblo» en alemán. El eslogan internacional de la empresa fue «Das Auto» («El automóvil»), aunque debido al escándalo de emisiones buscó cambiar su eslogan a algo más humilde y menos pretencioso, por lo que a inicios del 2016 el eslogan fue cambiado simplemente a «Volkswagen».<br/><br/>
-                            Volkswagen tiene tres coches en la lista de 10 autos más vendidos de todos los tiempos, a saber: Golf, Escarabajo y Passat . Esta información se puede encontrar en el sitio web llamado 24/7 Wall St. Con estos tres coches Volkswagen tiene más coches en la lista de aquellos que continúan produciendo que cualquier otro fabricante.<br/>
-                        </span>
-                        
-                    </div>
-
+                        <h2>No hay coches</h2>
                 </div>
             </div>
+        {% endif %}
     </div>
 </div>
 {% endblock contenido %}
