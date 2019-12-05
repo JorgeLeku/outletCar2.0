@@ -8,5 +8,8 @@ urlpatterns = [
     #path('listaCochesN', views.listaCochesN, name='listaCochesN'),
     path('', views.CocheCreateView.as_view(), name='cocheCreateView'),
     path('listaCocheskm0', views.listaCochesKm0.as_view(), name='listaCocheskm0'),
-    path('<slug:slug>/', views.DetailViewCoches, name='detail'),
+   #path('<slug:slug>/', views.detail, name='detail'),
+    path('coche_detalle/<str:n_bastidor>/', views.detail, name='detail'),
+    path('login', views.login.as_view(), name='login'),
+    path('register', views.register.as_view(), name='register'),
     ]

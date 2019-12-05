@@ -44,10 +44,9 @@ class listaCochesNuevos(ListView):
         return context
 
 class listaCochesKm0(ListView):
-    model=Coche
     template_name = 'cocheskm0.html'
-    #model=get_list_or_404(coche.objects.filter(estado="Segunda mano"))
-    
+    model=Coche
+
     def get_context_data(self, **kwargs):
         context=super().get_context_data(**kwargs)
         context['filter']=FiltroCochesKm0(self.request.GET, queryset=self.get_queryset())
@@ -101,3 +100,24 @@ def DetailViewCoches(request, slug):
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
 
+
+def detail(request, post_id):
+    coche = get_object_or_404(Coche, pk=n_bastidor)
+    context = { 'coche': coche }
+    return render(request, 'coche_detalle.html', context)
+
+class login(TemplateView):
+
+    template_name = "inicioSesion.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class register(TemplateView):
+
+    template_name = "registro.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

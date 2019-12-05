@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a blog page with a list of posts.">    
-    <title>{% block titulo %}outletCar &ndash;{% endblock %}</title>
+    <title>{% block titulo %}outletCar{% endblock %}</title>
     {% block css %}    
             <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
             <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
@@ -26,6 +26,8 @@
                 <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">QUIENES SOMOS</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">TIPOS DE COCHE</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">NUESTRAS MARCAS</a></li>
+                <li class="pure-menu-item"><a href="{% url 'appOutletCar:login'%}" class="pure menu-link" >INICIO SESION</a></li>
+                <li class="pure-menu-item"><a href="{% url 'appOutletCar:register'%}" class="pure menu-link" class="sesion">REGISTRATE</a></li>
             </ul>
         </div>
     </div>
