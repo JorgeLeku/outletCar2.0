@@ -52,6 +52,15 @@ class listaCochesKm0(ListView):
         context['filter']=FiltroCochesKm0(self.request.GET, queryset=self.get_queryset())
         return context
 
+class listaNuestrasMarcas(ListView):
+    template_name = 'nuestrasMarcas.html'
+    model=Marca
+
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context['filter']=FiltroNuestrasMarcas(self.request.GET, queryset=self.get_queryset())
+        return context
+
 class CocheCreateView(CreateView):
     model = Coche
     fields = ('n_bastidor', 'color', 'n_km')
