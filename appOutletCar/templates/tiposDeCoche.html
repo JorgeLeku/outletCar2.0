@@ -1,1 +1,29 @@
-tiposDeCoche
+{% extends 'base.html' %}{% load static %}{% load bootstrap %}
+{% block title %}Nuestras Marcas{% endblock title %}
+{% block contenido %}
+{% block css %}
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="{% static 'css/layouts/pricing.css' %}">
+{% endblock css %}
+
+<div class="content pure-u-1 pure-u-md-3-4">
+    <div class="pricing-tables pure-g">
+                        
+                <div class="pure-u-1 pure-u-md-1">
+                    <div class="pricing-table pricing-table-free">
+                        <div class="pricing-table-header">
+                            <h2>{{ tipodecoche.nombre }}</h2>
+                        </div>
+
+                        <ul class="pricing-table-list">
+                            <li>Info.:: {{tipodecoche.descripcion}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock contenido %}

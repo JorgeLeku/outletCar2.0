@@ -88,3 +88,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.name)
+
+class TipoDeCoche(models.Model):
+    nombre = models.CharField(max_length=20)
+    descripcion = models.CharField(max_length=500)
+
+    def __str__(self):
+
+        return self.nombre
