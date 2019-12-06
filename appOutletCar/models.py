@@ -35,7 +35,6 @@ class Modelo(models.Model):
         return self.nombre_Modelo
 
 
-
 class Coche(models.Model):
     n_bastidor = models.CharField(max_length=100, null=False, primary_key=True)
     color = models.CharField(max_length=100)
@@ -53,6 +52,8 @@ class Coche(models.Model):
     estado=models.CharField(max_length=100)
     def __str__(self):
         return self.n_bastidor
+
+
 class FotoCoche(models.Model):
     coche = models.ForeignKey(Coche, on_delete=models.CASCADE)
     fotoCoche = models.ImageField(upload_to='appOutletCar/static/img/coche', default='images/None/no-img.jpg')

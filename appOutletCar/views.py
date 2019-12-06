@@ -52,13 +52,31 @@ class listaCochesKm0(ListView):
         context['filter']=FiltroCochesKm0(self.request.GET, queryset=self.get_queryset())
         return context
 
-class listaNuestrasMarcas(ListView):
-    template_name = 'nuestrasMarcas.html'
-    model=Marca
+class nuestrasMarcas(TemplateView):
+
+    template_name = "nuestrasMarcas.html"
 
     def get_context_data(self, **kwargs):
-        context=super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         return context
+
+class tiposDeCoche(TemplateView):
+
+    template_name = "tiposDeCoche.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+class quienesSomos(TemplateView):
+
+    template_name = "quienesSomos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
 
 class CocheCreateView(CreateView):
     model = Coche
