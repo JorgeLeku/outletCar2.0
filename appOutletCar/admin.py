@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Marca, Modelo, Coche, Usuario, Lugar, Comment, FotoCoche 
+from .models import Marca, Modelo, Coche, Usuario, Lugar, Comment, FotoCoche, TipoDeCoche
 # Register your models here.
 
 class LugarAdmin(admin.ModelAdmin):
@@ -47,3 +47,9 @@ class CommentAdmin(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         queryset.update(active=True)
 admin.site.register(Comment, CommentAdmin)
+
+class TipoDeCocheAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'descripcion')
+    search_fields = ['nombre']
+  
+admin.site.register(TipoDeCoche, TipoDeCocheAdmin)
