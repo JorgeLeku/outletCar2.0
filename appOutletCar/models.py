@@ -16,7 +16,7 @@ class Lugar(models.Model):
 
 class Marca(models.Model):
     nombre_Marca = models.CharField(max_length=100, null=False, primary_key=True)
-    descripcion = models.CharField(max_length=1000)
+    descripcion = models.CharField(max_length=5000)
     fecha_creacion = models.DateField()
 
     def __str__(self):
@@ -90,9 +90,11 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 class TipoDeCoche(models.Model):
-    nombre = models.CharField(max_length=20)
-    descripcion = models.CharField(max_length=500)
+    nombre = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=2000)
+
+    class Meta:
+        ordering = ['nombre']
 
     def __str__(self):
-
         return self.nombre
