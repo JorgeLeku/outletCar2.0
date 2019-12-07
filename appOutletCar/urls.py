@@ -15,4 +15,11 @@ urlpatterns = [
     path('coche_detalle/<str:n_bastidor>/', views.detail, name='detail'),
     path('login', views.login.as_view(), name='login'),
     path('register', views.register.as_view(), name='register'),
+    path('reset_password', views.reset_password.as_view(), name='reset_password'),
+    path('password_reset_complete', views.password_reset_complete.as_view(), name='password_reset_complete'),
+    path('password_reset_confirm', views.password_reset_confirm.as_view(), name='password_reset_confirm'),
+    path('password_reset_done', views.password_reset_done.as_view(), name='password_reset_done'),
+    path('password_reset_email', views.password_reset_email.as_view(), name='password_reset_email'),
+    path('password_reset_form', views.password_reset_form.as_view(), name='password_reset_form'),
+
     ]

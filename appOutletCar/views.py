@@ -134,7 +134,7 @@ def detail(request, post_id):
 
 class login(TemplateView):
 
-    template_name = "inicioSesion.html"
+    template_name = "login.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -147,3 +147,46 @@ class register(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+class reset_password(TemplateView):
+    template_name = "reset_password.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class password_reset_complete(TemplateView):
+    template_name = "password_reset_complete.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class password_reset_confirm(TemplateView):
+    template_name = "password_reset_confirm.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class password_reset_done(TemplateView):
+    template_name = "password_reset_done.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class password_reset_email(TemplateView):
+    template_name = "password_reset_email.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class password_reset_form(TemplateView):
+    template_name = "password_reset_form.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
