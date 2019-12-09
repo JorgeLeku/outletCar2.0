@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views import View, generic
+from django.views import View
 from django.template import Context, loader
 from .forms import CommentForm
 from .models import Coche, FotoCoche, Marca, Modelo, Lugar, TipoDeCoche
@@ -12,7 +12,6 @@ from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from appOutletCar.forms import UserForm, UserProfileInfoForm
-from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 # Devuelve el listado de posts
 
@@ -22,7 +21,7 @@ class SignUp(generic.CreateView):
     template_name = 'signup.html'
 class HomePageView(TemplateView):
 
-    template_name = "home.html"
+    template_name = "index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
