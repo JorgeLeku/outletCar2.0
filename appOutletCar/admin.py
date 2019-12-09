@@ -25,7 +25,6 @@ admin.site.register(Modelo, ModeloAdmin)
 class CocheAdmin(admin.ModelAdmin):
     list_display = ('n_bastidor', 'estado', 'color', 'anyo', 'n_km', 'combustible', 'potencia', 'precio', 'cambio', 'consumo', 'comentario', 'modelo', 'lugar')
     search_fields = ['bastidor', 'content']
-    prepopulated_fields = {'slug': ('n_bastidor',)}
 admin.site.register(Coche, CocheAdmin)
 
 class fotoCocheAdmin(admin.ModelAdmin):
@@ -34,7 +33,7 @@ class fotoCocheAdmin(admin.ModelAdmin):
 admin.site.register(FotoCoche, fotoCocheAdmin)
 
 class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('correo', 'nombre_usuario', 'apellidos', 'telefono', 'contrasenya', 'coche')
+    list_display = ('correo', 'nombre_usuario', 'apellidos', 'telefono', 'contrasenya')
     search_fields = ['nombre', 'content']
   
 admin.site.register(Usuario, UsuarioAdmin)

@@ -21,8 +21,8 @@ from appOutletCar import views
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('appOutletCar.urls')),
-    url(r'^$',views.index,name='index'),
-    url(r'^special/',views.special,name='special'),
-    url(r'^appOutletCar/',include('appOutletCar.urls')),
-    url(r'^logout/$', views.user_logout, name='logout'),
+    #url(r'^$',views.index,name='index'),
+    #url(r'^special/',views.special,name='special'),
+    #url(r'^appOutletCar/',include('appOutletCar.urls')),
+    #url(r'^logout/$', views.user_logout, name='logout'),
 ]

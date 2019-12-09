@@ -34,9 +34,20 @@ class Modelo(models.Model):
 
         return self.nombre_Modelo
 
+class Usuario(models.Model):
+    correo = models.CharField(max_length=100, null=False, primary_key=True)
+    nombre_usuario = models.CharField(max_length=100)
+    apellidos = models.CharField(max_length=100)
+    telefono = models.IntegerField()
+    contrasenya = models.CharField(max_length=100)
+
+    def __str__(self):
+
+        return self.correo
+
 
 class Coche(models.Model):
-    n_bastidor = models.CharField(max_length=100, null=False, primary_key=True)
+    n_bastidor = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     anyo = models.IntegerField()
     n_km = models.IntegerField()
@@ -48,7 +59,7 @@ class Coche(models.Model):
     comentario = models.CharField(max_length=1000)
     modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
-    slug = models.SlugField(max_length=200, unique=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     estado=models.CharField(max_length=100)
     def __str__(self):
         return self.n_bastidor
@@ -61,18 +72,6 @@ class FotoCoche(models.Model):
     def __str__(self):
         return self.coche.n_bastidor+ " Imagen"
 
-
-class Usuario(models.Model):
-    correo = models.CharField(max_length=100, null=False, primary_key=True)
-    nombre_usuario = models.CharField(max_length=100)
-    apellidos = models.CharField(max_length=100)
-    telefono = models.IntegerField()
-    contrasenya = models.CharField(max_length=100)
-    coche = models.ForeignKey(Coche, on_delete=models.CASCADE, null=True)
-
-    def __str__(self):
-
-        return self.correo
 
 
 class Comment(models.Model):

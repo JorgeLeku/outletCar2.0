@@ -107,7 +107,7 @@ def DetailViewCoches(request, slug):
 
 
 def detail(request, post_id):
-    coche = get_object_or_404(Coche, pk=n_bastidor)
+    coche = get_object_or_404(Coche, pk=coche_id)
     context = { 'coche': coche }
     return render(request, 'coche_detalle.html', context)
 
@@ -116,6 +116,9 @@ def detail(request, post_id):
 
 def index(request):
     return render(request,'appOutletCar/index.html')
+
+
+
 @login_required
 def special(request):
     return HttpResponse("You are logged in !")
