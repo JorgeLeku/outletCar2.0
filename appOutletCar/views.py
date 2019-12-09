@@ -81,9 +81,9 @@ class CocheCreateView(CreateView):
 #        return context
 
 
-def DetailViewCoches(request, slug):
+def DetailViewCoches(request, coche_id):
     template_name = 'coche_detalle.html'
-    coche = get_object_or_404(Coche, slug=slug)
+    coche = get_object_or_404(Coche, id=coche_id)
     comments = coche.comments.filter(active=True)
     new_comment = None
     # Comment posted
@@ -105,17 +105,16 @@ def DetailViewCoches(request, slug):
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
 
-
-def detail(request, post_id):
-    coche = get_object_or_404(Coche, pk=n_bastidor)
-    context = { 'coche': coche }
-    return render(request, 'coche_detalle.html', context)
+    
 
 
 
 
 def index(request):
     return render(request,'appOutletCar/index.html')
+
+
+
 @login_required
 def special(request):
     return HttpResponse("You are logged in !")
