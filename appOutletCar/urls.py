@@ -11,7 +11,7 @@ urlpatterns = [
     #path('listaCochesN', views.listaCochesN, name='listaCochesN'),
     #path('<slug:slug>/', views.detail, name='detail'),
 
-    path('detalle_coche/<int:coche_id>/', views.detail, name='detail'),
+    path('detalle_coche/<int:coche_id>/', views.DetailViewCoches, name='detail'),
     path('', views.CocheCreateView.as_view(), name='cocheCreateView'),
 
     path('nuestrasMarcas', views.nuestrasMarcas.as_view(), name='nuestrasMarcas'),
