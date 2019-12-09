@@ -174,7 +174,7 @@ class nuestrasMarcas(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-class tiposDeCoche(TemplateView):
+class tiposDeCoche(ListView):
 
     template_name = "tiposDeCoche.html"
     model = TipoDeCoche
