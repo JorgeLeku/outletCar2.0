@@ -3,3 +3,4 @@
 *.sass.map
 *.scss.map
 *.sqlite3
+db.sqlite3
