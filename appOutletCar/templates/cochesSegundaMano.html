@@ -31,7 +31,7 @@
         
         {% if filter.qs %}
             {% for coche in filter.qs %}
-            {% if coche.estado == 'Km0' %}
+            {% if coche.estado == 'Segunda mano' %}
                 <div class="pure-u-1 pure-u-md-1">
                     <div class="pricing-table pricing-table-free">
                         <div class="pricing-table-header">
@@ -52,7 +52,7 @@
                         </ul>
 
                         <a class="button-choose pure-button" href="{% url 'appOutletCar:detail' coche.id %}">Choose</a>
-                    </div>
+                     </div>
                 </div>
             {% endif %}
             {% endfor %}

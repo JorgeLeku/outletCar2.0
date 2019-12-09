@@ -59,11 +59,14 @@ class Coche(models.Model):
     comentario = models.CharField(max_length=1000)
     modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     estado=models.CharField(max_length=100)
     def __str__(self):
         return self.n_bastidor
 
+    def get_image_filename(instance, filename):
+        id = instance.coche.id
+        return "static/img/%s" % (id)  
 
 class FotoCoche(models.Model):
     coche = models.ForeignKey(Coche, on_delete=models.CASCADE)
@@ -76,8 +79,7 @@ class FotoCoche(models.Model):
 
 class Comment(models.Model):
     coche = models.ForeignKey(Coche,on_delete=models.CASCADE,related_name='comments')
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
+    usuario= models.ForeignKey(User,on_delete=models.CASCADE)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
@@ -86,7 +88,7 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return 'Comment {} by {}'.format(self.body, self.name)
+        return 'Comment {} by {}'.format(self.body, self.usuario)
 
 class TipoDeCoche(models.Model):
     nombre = models.CharField(max_length=50)

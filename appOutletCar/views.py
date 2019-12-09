@@ -23,14 +23,11 @@ class HomePageView(TemplateView):
         context['latest_articles'] = Coche.objects.all()[:5]
         return context
 
-def listaCochesN(request):
-    coche = get_list_or_404(Coche.objects.order_by('n_bastidor').filter(estado="Segunda mano"))
-    context = { 'lista_cochesN': coche }
-    return render(request, 'cochesNuevos.html', context)
+
 
 class listaCochesSegunda(ListView):
     model = Coche
-    template_name = 'cochesNuevos.html'
+    template_name = 'cochesSegundaMano.html'
 
     def get_context_data(self, **kwargs):
         context=super().get_context_data(**kwargs)
@@ -100,12 +97,15 @@ def DetailViewCoches(request, coche_id):
     else:
         comment_form = CommentForm()
 
+    
+
     return render(request, template_name, {'coche': coche,
                                            'comments': comments,
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
 
     
+
 
 
 
