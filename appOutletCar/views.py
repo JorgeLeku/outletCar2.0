@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.views import View
 from django.template import Context, loader
 from .forms import CommentForm
-from .models import Coche, FotoCoche, Marca, Modelo, Lugar
+from .models import Coche, FotoCoche, Marca, Modelo, Lugar, TipoDeCoche
 from .filters import FiltroCoches, FiltroCochesNuevos, FiltroCochesKm0
 from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login, logout
@@ -55,30 +55,6 @@ class listaCochesKm0(ListView):
         context['filter']=FiltroCochesKm0(self.request.GET, queryset=self.get_queryset())
         return context
 
-class nuestrasMarcas(TemplateView):
-
-    template_name = "nuestrasMarcas.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class tiposDeCoche(TemplateView):
-
-    template_name = "tiposDeCoche.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-
-class quienesSomos(TemplateView):
-
-    template_name = "quienesSomos.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 
 class CocheCreateView(CreateView):
@@ -135,6 +111,9 @@ def detail(request, post_id):
     context = { 'coche': coche }
     return render(request, 'coche_detalle.html', context)
 
+
+
+
 def index(request):
     return render(request,'appOutletCar/index.html')
 @login_required
@@ -186,3 +165,29 @@ def user_login(request):
             return HttpResponse("Invalid login details given")
     else:
         return render(request, 'appOutletCar/login.html', {})
+
+
+class nuestrasMarcas(ListView):
+
+    template_name = "nuestrasMarcas.html"
+    model = Marca
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class tiposDeCoche(TemplateView):
+
+    template_name = "tiposDeCoche.html"
+    model = TipoDeCoche
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+class quienesSomos(TemplateView):
+
+    template_name = "quienesSomos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
