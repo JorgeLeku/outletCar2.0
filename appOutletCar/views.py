@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
@@ -9,6 +9,9 @@ from .forms import CommentForm
 from .models import Coche, FotoCoche, Marca, Modelo, Lugar
 from .filters import FiltroCoches, FiltroCochesNuevos, FiltroCochesKm0
 from django.views.generic import CreateView
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from appOutletCar.forms import UserForm, UserProfileInfoForm
 # Create your views here.
 # Devuelve el listado de posts
 class HomePageView(TemplateView):
@@ -132,61 +135,54 @@ def detail(request, post_id):
     context = { 'coche': coche }
     return render(request, 'coche_detalle.html', context)
 
-class login(TemplateView):
-
-    template_name = "login.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class register(TemplateView):
-
-    template_name = "registro.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class reset_password(TemplateView):
-    template_name = "reset_password.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class password_reset_complete(TemplateView):
-    template_name = "password_reset_complete.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class password_reset_confirm(TemplateView):
-    template_name = "password_reset_confirm.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class password_reset_done(TemplateView):
-    template_name = "password_reset_done.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class password_reset_email(TemplateView):
-    template_name = "password_reset_email.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
-class password_reset_form(TemplateView):
-    template_name = "password_reset_form.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
+def index(request):
+    return render(request,'appOutletCar/index.html')
+@login_required
+def special(request):
+    return HttpResponse("You are logged in !")
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
+def register(request):
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileInfoForm(data=request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            if 'profile_pic' in request.FILES:
+                print('found it')
+                profile.profile_pic = request.FILES['profile_pic']
+            profile.save()
+            registered = True
+        else:
+            print(user_form.errors,profile_form.errors)
+    else:
+        user_form = UserForm()
+        profile_form = UserProfileInfoForm()
+    return render(request,'appOutletCar/registration.html',
+                          {'user_form':user_form,
+                           'profile_form':profile_form,
+                           'registered':registered})
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request,user)
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                return HttpResponse("Your account was inactive.")
+        else:
+            print("Someone tried to login and failed.")
+            print("They used username: {} and password: {}".format(username,password))
+            return HttpResponse("Invalid login details given")
+    else:
+        return render(request, 'appOutletCar/login.html', {})

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from appOutletCar.models import UserProfileInfo, User
 
 from .models import Marca, Modelo, Coche, Usuario, Lugar, Comment, FotoCoche, TipoDeCoche
 # Register your models here.
@@ -53,3 +54,4 @@ class TipoDeCocheAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
   
 admin.site.register(TipoDeCoche, TipoDeCocheAdmin)
+admin.site.register(UserProfileInfo)

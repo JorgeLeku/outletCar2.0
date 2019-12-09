@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
+from appOutletCar import views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('appOutletCar.urls')),
+    url(r'^$',views.index,name='index'),
+    url(r'^special/',views.special,name='special'),
+    url(r'^appOutletCar/',include('appOutletCar.urls')),
+    url(r'^logout/$', views.user_logout, name='logout'),
 ]
