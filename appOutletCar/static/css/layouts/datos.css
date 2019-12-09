@@ -89,7 +89,7 @@ p {
  */
  .pricing-tables,
  .information {
-    width: 1535px;  /*ESTO es lo que he cambiado 09/12/2019*/
+    max-width: 980px;
     margin: 0 auto;
  }
 .pricing-tables {
@@ -168,7 +168,6 @@ p {
  */
 .pricing-table-free .pricing-table-header {
     background: #519251;
-    text-align: center;
 }
 
 .pricing-table-biz .pricing-table-header {

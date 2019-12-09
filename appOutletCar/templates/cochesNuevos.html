@@ -30,7 +30,7 @@
     <div class="pricing-tables pure-g">
         {% if filter.qs %}
             {% for coche in filter.qs %}
-                
+            
                 <div class="pure-u-1 pure-u-md-1">
                     <div class="pricing-table pricing-table-free">
                         <div class="pricing-table-header">
@@ -54,7 +54,7 @@
                         <a class="" href="{% url 'appOutletCar:detail' coche.id %}">Choose</a>
                     </div>
                 </div>
-                
+             
             {% endfor %}
         {% else %}
         <div class="pure-u-1 pure-u-md-1">

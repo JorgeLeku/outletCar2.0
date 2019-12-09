@@ -28,9 +28,10 @@
 </div>
 <div class="content pure-u-1 pure-u-md-3-4">
     <div class="pricing-tables pure-g">
+        
         {% if filter.qs %}
             {% for coche in filter.qs %}
-                
+            {% if coche.estado="km0" %}
                 <div class="pure-u-1 pure-u-md-1">
                     <div class="pricing-table pricing-table-free">
                         <div class="pricing-table-header">
@@ -50,10 +51,10 @@
                             <li>Lugar: {{coche.lugar.ciudad}}, {{coche.lugar.provincia}}</li>
                         </ul>
 
-                        <button class="button-choose pure-button" href="{% url 'appOutletCar:detail' coche.n_bastidor %}">Choose</button>
+                        <button class="button-choose pure-button" href="{% url 'appOutletCar:detail' coche.id %}">Choose</button>
                     </div>
                 </div>
-                
+            {% endif %}
             {% endfor %}
         {% else %}
         <div class="pure-u-1 pure-u-md-1">
