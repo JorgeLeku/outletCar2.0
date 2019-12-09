@@ -25,6 +25,7 @@
             </header>
             <div class="post-description">
                 <p>{{ coche.descripcion }}</p>
+                <img src="{%static coche.fotoCoche_set.fotoCoche%}">
             </div>
         </section>
     {% else %}
@@ -55,7 +56,7 @@
   
           <div class="comments" style="padding: 10px;">
             <p class="font-weight-bold">
-              {{ comment.name }}
+              {{ comment.usuario }}
               <span class=" text-muted font-weight-normal">
                 {{ comment.created_on }}
               </span>

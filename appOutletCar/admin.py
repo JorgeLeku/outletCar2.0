@@ -39,9 +39,9 @@ class UsuarioAdmin(admin.ModelAdmin):
 admin.site.register(Usuario, UsuarioAdmin)
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'body', 'coche', 'created_on', 'active')
+    list_display = ('body', 'created_on', 'active')
     list_filter = ('active', 'created_on')
-    search_fields = ('name', 'email', 'body')
+    search_fields = ('usuario', 'body')
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
