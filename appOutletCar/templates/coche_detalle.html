@@ -69,17 +69,27 @@
       </div>
       <div class="col-md-8 card mb-4  mt-3 ">
         <div class="card-body">
+          
           {% if new_comment %}
           <div class="alert alert-success" role="alert">
             Your comment is awaiting moderation
           </div>
           {% else %}
+          {% if user.is_authenticated %}
           <h3>Leave a comment</h3>
           <form method="post" style="margin-top: 1.3em;">
-            {{ comment_form | crispy }}
+            
             {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6 mb-0">
+                {{comment_form.body|as_crispy_field}}
+              </div>
+            </div>
             <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
           </form>
+          {%else%}
+            <a href="{% url 'login'%}" class="btn btn-primary  btn-lg">Iniciar sesion</a>
+          {% endif %}
           {% endif %}
         </div>
       </div>

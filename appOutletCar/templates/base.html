@@ -26,8 +26,13 @@
                 <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:quienesSomos'%}" class="pure-menu-link">QUIENES SOMOS</a></li>
                 <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:tiposDeCoche'%}" class="pure-menu-link">TIPOS DE COCHE</a></li>
                 <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:nuestrasMarcas'%}" class="pure-menu-link">NUESTRAS MARCAS</a></li>
-                <li class="pure-menu-item"><a href="{% url 'appOutletCar:user_login'%}" class="pure menu-link" >INICIO SESION</a></li>
-                <li class="pure-menu-item"><a href="{% url 'appOutletCar:register'%}" class="pure menu-link" class="sesion">REGISTRATE</a></li>
+                {% if user.is_authenticated %}
+                    Bienvenido {{ user.username }}!   <a href="{% url 'logout' %}">Cerrar sesión</a>
+                    
+                {% else %}
+                    <li class="pure-menu-item"><a href="{% url 'login' %}" class="pure menu-link" >INICIO SESION</a></li>
+                    <li class="pure-menu-item"><a href="{% url 'appOutletCar:signup'%}" class="pure menu-link" class="sesion">REGISTRATE</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

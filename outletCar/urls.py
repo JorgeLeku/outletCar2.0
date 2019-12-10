@@ -25,4 +25,5 @@ urlpatterns = [
     #url(r'^special/',views.special,name='special'),
     #url(r'^appOutletCar/',include('appOutletCar.urls')),
     #url(r'^logout/$', views.user_logout, name='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
