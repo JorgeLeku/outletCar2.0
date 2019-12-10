@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('usuario', 'body')
+        fields = ('body', )
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta():
