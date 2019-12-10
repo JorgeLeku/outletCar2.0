@@ -18,6 +18,8 @@ urlpatterns = [
     path('tiposDeCoche', views.tiposDeCoche.as_view(), name='tiposDeCoche'),
     path('quienesSomos', views.quienesSomos.as_view(), name='quienesSomos'),
     
+    path('change_password/', views.change_password, name='change_password'),
+
     url(r'^register/$',views.register,name='register'),
     url(r'^user_login/$',views.user_login,name='user_login'),
     

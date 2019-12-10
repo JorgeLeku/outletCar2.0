@@ -64,13 +64,10 @@ class Coche(models.Model):
     def __str__(self):
         return self.n_bastidor
 
-    def get_image_filename(instance, filename):
-        id = instance.coche.id
-        return "static/img/%s" % (id)  
 
 class FotoCoche(models.Model):
     coche = models.ForeignKey(Coche, on_delete=models.CASCADE)
-    fotoCoche = models.ImageField(upload_to='appOutletCar/static/img/coche', default='images/None/no-img.jpg')
+    fotoCoche = models.ImageField(upload_to='images/', default='images/None/no-img.jpg')
     
     def __str__(self):
         return self.coche.n_bastidor+ " Imagen"
