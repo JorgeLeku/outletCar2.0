@@ -197,3 +197,12 @@ class quienesSomos(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+class añadirCoche(TemplateView):
+
+    template_name = "añadirCoche.html"
+    model = Coche
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
