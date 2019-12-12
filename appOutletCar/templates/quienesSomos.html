@@ -1,69 +1,95 @@
-{% extends 'base.html' %}{% load static %}{% load bootstrap %}
-{% block title %}Nuestras Marcas{% endblock title %}
+{% extends 'base.html' %}
+{% load static %}{% load bootstrap %}
+{% block title %}Quienes Somos{% endblock title %}
 {% block css %}
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="{% static 'css/layouts/datos.css' %}"
+    <link rel="stylesheet" href="{% static 'css/layouts/datos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/about-us.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/framework-us.css' %}">
 {% endblock css %}
-    
+
 {% block contenido %}
-
-<!DOCTYPE html>
-<html>
-<body align="center">
-
-<h1>¿Quienes somos?</h1>
-
-<p>Bienvenido a outletCar, su fuente número uno para todas las compras y ventas de automoviles. Estamos dedicados a brindarle lo mejor de las compraventas online, con un enfoque en seguridad, fiabilidad y seriedad.</p>
-
-<p>Fundada en 1997 por Asier Moreno, outletCar ha recorrido un largo camino desde sus inicios en Ortuella. Cuando Asier comenzó, su pasión por los diferentes tipos de automoviles le llevaron a dejar el trabajo diario para que outletCar pueda ofrecerle una gran atencion personalizada. Ahora servimos a clientes en toda España, y estamos encantados de poder convertir nuestra pasión en nuestro propio sitio web.</p>
-
-<p>Nosotros esperamos que disfrutes de nuestros productos tanto como yo disfruté ofreciéndolos. Si tiene alguna pregunta o comentario, no dude en comunicarse con nosotros.</p>
-
-<p>Sinceramente,</p>
-
-<p>Asier Moreno</p>
-
-<p><img src="../static/img/ctc.png" width="600" height="338"></p>
-
-&nbsp; <!-- extra space -->
-<h2>Empleados:</h2>
-
-<table style="border-collapse: separate; border-spacing: 30px;" align="center" >
-    <tr>
-      <td>Mikel Moreno</td>
-        <td>Aitor Bonilla</td>
-        <td>Eduardo Rodriguez</td>
-        <td>Adolfo Cesar Velazquez</td>
-    <tr/>
-        <td><img src="../static/img/mmm.jfif" width="130" height="130" ></td>
-        <td><img src="../static/img/c2.png" width="130" height="130" ></td>
-        <td><img src="../static/img/er.jpg" width="130" height="130" ></td>
-        <td><img src="../static/img/acv.jpg" width="130" height="130" ></td>
-    <tr/>    
-    <tr>
-        <td>CEO outletCar</td>
-        <td>Director Financiero</td>
-        <td>Director Marketing</td>
-        <td>Director TIC</td>
-    <tr/>
-    <tr>
-        <td>Universidad de Deusto:</td>
-        <td>Universidad del Pais Vasco:</td>
-        <td>Universidad de Cantabria:</td>
-        <td>Universidad de Deusto:</td>
-    <tr/>
-    <tr>
-        <td>Licenciado en administracion<br>y direccion de empresas</td>
-        <td>Licenciado en derecho y <br>economia</td>
-        <td>Licenciado en marketing y <br>direccion comercial</td>
-        <td>Ingeniero en informatica</td>
-    <tr/> 
-</table>
-
-</body>
-</html>
-
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <div id="about-us" class="clear">
+      <!-- ####################################################################################################### -->
+      <section id="about-intro" class="clear">
+        <div class="two_third first">
+          <blockquote>
+            <p><span>&ldquo;</span> In odio. Mauris feugiat. Nunc posuere, felis sit amet faucibus convallis, tortor enim viverra quam, hendrerit interdum dui quam ut lacus. Vivamus accumsan. Donec molestie pede vel urna curabitur eget sem ornare felis.</p>
+          </blockquote>
+          <p>In sed neque id libero pretium luctus. Vivamus faucibus. Ut vitae elit. In hac habitasse platea dictumst. Proin et nisl ac orci tempus luctus. Aenean lacinia justo at nisi. Vestibulum sed eros sit amet nisl lobortis commodo. Suspendisse nulla.</p>
+          <p>Vivamus ac lorem. Aliquam pulvinar purus at felis. Quisque convallis nulla id ipsum. Praesent vitae urna. Fusce blandit nunc nec mi. Praesent vestibulum hendrerit ante.</p>
+        </div>
+        <div class="one_third"><img src="../static/img/mmm.jfif" width="300" height="300" ></div>
+      </section>
+      <!-- ####################################################################################################### -->
+      <section id="team">
+        <h2>Vivamuslibero Auguer</h2>
+        <ul class="clear">
+          <li class="one_third first">
+            <figure><img src="../static/img/mmm.jfif" width="130" height="130" >
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_third">
+            <figure><img src="../static/img/mmm.jfif" width="130" height="130" >
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_third">
+            <figure><img src="../static/img/mmm.jfif" width="130" height="130" >
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_third first">
+            <figure><img src="../static/img/mmm.jfif" width="130" height="130" >
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_third">
+            <figure><img src="../static/img/mmm.jfif" width="130" height="130" >
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="one_third">
+            <figure><img src="../static/img/mmm.jfif" width="130" height="130" >
+              <figcaption>
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+      <!-- ####################################################################################################### -->
+    </div>
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+  </div>
+</div>
 {% endblock contenido %}

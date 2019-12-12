@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.views import View, generic
 from django.template import Context, loader
 from .forms import CommentForm
-from .models import Coche, FotoCoche, Marca, Modelo, Lugar, TipoDeCoche
+from .models import Coche, FotoCoche, Marca, Modelo, Lugar, TipoDeCoche, User
 from .filters import FiltroCoches, FiltroCochesNuevos, FiltroCochesKm0
 from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login, logout
@@ -15,7 +15,6 @@ from appOutletCar.forms import UserForm, UserProfileInfoForm
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 # Devuelve el listado de posts
-
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
@@ -87,18 +86,20 @@ class CocheCreateView(CreateView):
 def DetailViewCoches(request, coche_id):
     template_name = 'coche_detalle.html'
     coche = get_object_or_404(Coche, id=coche_id)
+    usuario = request.user
     comments = coche.comments.filter(active=True)
     new_comment = None
     # Comment posted
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
-
             # Create Comment object but don't save to database yet
             new_comment = comment_form.save(commit=False)
             # Assign the current coche to the comment
             new_comment.coche = coche
+            new_comment.usuario = usuario
             # Save the comment to the database
+            
             new_comment.save()
     else:
         comment_form = CommentForm()
@@ -192,6 +193,15 @@ class tiposDeCoche(ListView):
 class quienesSomos(TemplateView):
 
     template_name = "quienesSomos.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+    
+class añadirCoche(TemplateView):
+
+    template_name = "añadirCoche.html"
+    model = Coche
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

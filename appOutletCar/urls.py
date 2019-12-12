@@ -13,13 +13,17 @@ urlpatterns = [
 
     path('detalle_coche/<int:coche_id>/', views.DetailViewCoches, name='detail'),
     path('', views.CocheCreateView.as_view(), name='cocheCreateView'),
-
+    
+     url('añadirCoche', views.añadirCoche.as_view(), name='añadirCoche'),
+    
     path('nuestrasMarcas', views.nuestrasMarcas.as_view(), name='nuestrasMarcas'),
     path('tiposDeCoche', views.tiposDeCoche.as_view(), name='tiposDeCoche'),
     path('quienesSomos', views.quienesSomos.as_view(), name='quienesSomos'),
     
     url(r'^register/$',views.register,name='register'),
+
     url(r'^user_login/$',views.user_login,name='user_login'),
     
     path('signup/', views.SignUp.as_view(), name='signup'),
+
     ]

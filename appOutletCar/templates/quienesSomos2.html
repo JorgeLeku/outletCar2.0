@@ -1,0 +1,81 @@
+{% extends 'base.html' %}{% load static %}{% load bootstrap %}
+{% block title %}Nuestras Marcas{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="{% static 'css/layouts/datos.css' %}"
+{% endblock css %}
+    
+{% block contenido %}
+
+<!DOCTYPE html>
+<html>
+<body align="center">
+
+<div class="two_third first">
+<h1>¿Quienes somos?</h1>
+
+<p>Bienvenido a outletCar, su fuente número uno para todas las compras y ventas de automoviles. Estamos dedicados a brindarle lo mejor de las compraventas online, con un enfoque en seguridad, fiabilidad y seriedad.</p>
+
+<p>Fundada en 1997 por Asier Moreno, outletCar ha recorrido un largo camino desde sus inicios en Ortuella. Cuando Asier comenzó, su pasión por los diferentes tipos de automoviles le llevaron a dejar el trabajo diario para que outletCar pueda ofrecerle una gran atencion personalizada. Ahora servimos a clientes en toda España, y estamos encantados de poder convertir nuestra pasión en nuestro propio sitio web.</p>
+
+<p>Nosotros esperamos que disfrutes de nuestros productos tanto como yo disfruté ofreciéndolos. Si tiene alguna pregunta o comentario, no dude en comunicarse con nosotros.</p>
+
+<p>Sinceramente,</p>
+
+<p>Asier Moreno</p>
+</div>
+<p><img src="../static/img/ctc.png" width="600" height="338"></p>
+
+&nbsp; <!-- extra space -->
+<h2>Empleados:</h2>
+
+<table style="border-collapse: separate; border-spacing: 30px;" align="center" >
+    <tr>
+      <td>Mikel Moreno</td>
+        <td>Aitor Bonilla</td>
+        <td>Eduardo Rodriguez</td>
+        <td>Adolfo Cesar Velazquez</td>
+    <tr/>
+        <td><img src="../static/img/mmm.jfif" width="130" height="130" ></td>
+        <td><img src="../static/img/ab.png" width="130" height="130" ></td>
+        <td><img src="../static/img/er.jpg" width="130" height="130" ></td>
+        <td><img src="../static/img/acv.jpg" width="130" height="130" ></td>
+    <tr/>    
+    <tr>
+        <td>CEO outletCar</td>
+        <td>Director Financiero</td>
+        <td>Director Marketing</td>
+        <td>Director TIC</td>
+    <tr/>
+    <tr>
+        <td>Universidad de Deusto;</td>
+        <td>Universidad del Pais Vasco;</td>
+        <td>Universidad de Cantabria;</td>
+        <td>Universidad de Deusto;</td>
+    <tr/>
+    <tr>
+        <td>Licenciado en administracion<br>y direccion de empresas</td>
+        <td>Licenciado en derecho y <br>economia</td>
+        <td>Licenciado en marketing y <br>direccion comercial</td>
+        <td>Ingeniero en informatica</td>
+    <tr/> 
+    <tr>
+        <td>"Quiero que la empresa de mi<br>
+        padre de un pase hacia delante <br>adentrandonos en las nuevas<br>
+        tecnologias."</td>
+        <td>"Llevo las cuentas y los conceptos<br> legales siempre actualizados con el <br>sueño de que esto no pare de crecer."</td>
+        <td>"Junto a Mikel Moreno estamos<br>
+        llevando outletCar a otro nivel nunca<br> antes alcanzado."</td>
+        <td>"En cuanto acabé la carrera se<br>
+        pusieron en contacto conmigo, no podia<br>rechazar la oferta de reinvencion de<br>
+        una empresa mitica."</td>
+    <tr/> 
+</table>
+
+</body>
+</html>
+
+{% endblock contenido %}

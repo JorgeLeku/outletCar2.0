@@ -2,11 +2,12 @@ from .models import Comment, FotoCoche
 from django import forms
 from appOutletCar.models import UserProfileInfo
 from django.contrib.auth.models import User
+from .models import Coche
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('usuario', 'body')
+        fields = ('body', )
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta():
@@ -23,3 +24,10 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model = FotoCoche
         fields = ('image', )
+        
+class AñadirCocheForm(forms.ModelForm):
+
+    class Meta:
+        model = Coche
+
+        fields = ('modelo', 'anyo','estado', 'n_bastidor','color', 'n_km','combustible', 'potencia','precio', 'cambio','consumo', 'comentario','lugar')
