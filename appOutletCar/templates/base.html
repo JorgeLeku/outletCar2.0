@@ -27,6 +27,7 @@
                 <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:tiposDeCoche'%}" class="pure-menu-link">TIPOS DE COCHE</a></li>
                 <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:nuestrasMarcas'%}" class="pure-menu-link">NUESTRAS MARCAS</a></li>
                 {% if user.is_authenticated %}
+                <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:añadirCoches'%}" class="pure-menu-link">AÑADIR COCHE</a></li>
                     Bienvenido {{ user.username }}!   <a href="{% url 'logout' %}">Cerrar sesión</a>
                     
                 {% else %}
