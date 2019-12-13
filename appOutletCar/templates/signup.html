@@ -1,5 +1,6 @@
 <!-- templates/signup.html -->
 {% extends 'base.html' %}{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 {% block css %}
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
@@ -19,3 +20,10 @@
     <button type="submit">Sign up</button>
   </form>
 {% endblock %}
+
+<script>$(document).ready(function(){
+  $("button").click(function(evento){
+     alert("Serás reenviado a la página de inicio");
+  });
+});
+</script>

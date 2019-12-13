@@ -1,0 +1,70 @@
+{% extends 'base.html' %}{% load static %}{% load bootstrap %}
+{% block title %}Lista Coche{% endblock title %}
+{% block contenido %}
+{% block css %}
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="{% static 'css/layouts/pricing.css' %}">
+{% endblock css %}
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header-sidebar">
+            <h1 class="brand-title" >BUSCA</h1>
+            <h2 class="brand-tagline">EL COCHE A TU MEDIDA</h2>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <form class="form" method="GET">
+                            {{filter.form|bootstrap}}
+                        <button class="pure-button" type="submit" >BUSCAR</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="content pure-u-1 pure-u-md-3-4">
+    <div class="pricing-tables pure-g">
+        
+        {% if filter.qs %}
+            {% for coche in filter.qs %}
+            {% if coche.estado == 'Km0' %}
+                <div class="pure-u-1 pure-u-md-1">
+                    <div class="pricing-table pricing-table-free">
+                        <div class="pricing-table-header">
+                            <h2>{{ coche.modelo.marca.nombre_Marca }}</h2>
+                            <span class="pricing-table-price">
+                                {{coche.modelo}}    <span>{{coche.precio}}</span>
+                            </span>
+                            
+                        </div>
+
+                        <ul class="pricing-table-list">
+                            <li>año: {{coche.anyo}}</li>
+                            <li>KM: {{coche.n_km}}</li>
+                            <li>Combustible: {{coche.combustible}}</li>
+                            <li>Cambio: {{coche.cambio}}</li>
+                            <li>Consumo: {{coche.consumo}}</li>
+                            <li>Lugar: {{coche.lugar.ciudad}}, {{coche.lugar.provincia}}</li>
+                        </ul>
+
+                        <a class="button-choose pure-button" href="{% url 'appOutletCar:detail' coche.id %}">Choose</a>
+                    </div>
+                </div>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+        <div class="pure-u-1 pure-u-md-1">
+                <div class="pricing-table pricing-table-free">
+                    <div class="pricing-table-header">
+                        <h2>No hay coches</h2>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock contenido %}
+    

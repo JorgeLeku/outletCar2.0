@@ -1,6 +1,6 @@
 /*
 HTML 5 Template Name: 
-File: About Us - 20 CSS
+File: About Us - 3 CSS
 Author: OS Templates
 Author URI: https://www.os-templates.com/
 Licence: <a href="https://www.os-templates.com/template-terms">Website Template Licence</a>
@@ -8,31 +8,31 @@ Licence: <a href="https://www.os-templates.com/template-terms">Website Template 
 
 #about-us{display:block; width:100%; line-height:1.6em;}
 
-#about-us #about-intro{margin-bottom:0;}
-#about-us #about-intro .panorama{margin-bottom:20px;}
-#about-us #about-intro .panorama .imgholder{}
-#about-us #about-intro blockquote{position:relative; margin:0; padding:0;}
-#about-us #about-intro blockquote p{margin:0; padding:0 0 0 60px; font-size:16px; font-style:italic; line-height:1.6em;}
-#about-us #about-intro blockquote p span{position:absolute; top:0; left:0; font-size:120px; line-height:.8em;}
-#about-us #about-intro h2{}
-#about-us #about-intro p{}
-#about-us #about-intro p:first-child{}
-
-#about-us #skillset{margin-bottom:0;}
-#about-us #skillset li{margin-top:8px;}
-#about-us #skillset li:first-child{margin-top:0;}
+#about-us #statements{margin-bottom:30px;}
+#about-us #statements div{margin-bottom:0;}
+#about-us #statements .panorama{display:block; width:100%; margin-bottom:30px;}
+#about-us #statements .panorama img{}
+#about-us #statements h2{margin:0 0 20px 0; padding:0 0 20px 0; border-bottom:1px solid #CCCCCC;}
+#about-us #statements ul{}
+#about-us #statements ul li{}
+#about-us #statements p{}
+#about-us #statements blockquote{font-style:italic; font-weight:bold; text-align:justify;}
 
 #about-us #team{margin-bottom:0;}
+#about-us #team h2{margin:0 0 50px 0; padding:0 0 20px 0; border-bottom:1px solid #CCCCCC;}
 #about-us #team ul{margin:0; padding:0; list-style:none;}
-#about-us #team ul li{display:inline-block; float:left; width:140px; margin:30px 0 0 20px; padding:0; text-align:center;}
-#about-us #team ul li:first-child,
-#about-us #team ul > li:first-child + li + li,
-#about-us #team ul > li:first-child + li + li + li + li{margin-left:0;}
-#about-us #team ul > li:first-child, #about-us #team ul > li:first-child + li{margin-top:0;}
-#about-us #team ul li figure{}
-#about-us #team ul li figure img{padding:4px; border:1px solid #CCCCCC;}
-#about-us #team ul li figcaption{}
-#about-us #team ul li figcaption p{margin:5px 0 0 0; padding:0;}
-#about-us #team ul li figcaption p:first-child{}
-#about-us #team ul li figure figcaption .team_name{}
-#about-us #team ul li figure figcaption .team_title{margin:0; font-size:11px; line-height:normal;}
+#about-us #team ul li{}
+#about-us #team ul li figure{position:relative;}
+#about-us #team ul li figure img{}
+#about-us #team ul li figure figcaption{display:none; position:absolute; top:0; left:0; width:100%; height:100%; overflow:hidden; color:#FFFFFF; background-color:#000000; background:hsla(0, 0%, 0%, 0.8);}
+#about-us #team ul li:hover figure figcaption{display:block;}
+#about-us #team ul li figure figcaption p{margin:15px 15px 0 15px; padding:0;}
+#about-us #team ul li figure figcaption .team_name{font-weight:bold;}
+#about-us #team ul li figure figcaption .team_title{margin:5px 15px 0 15px; font-size:11px; line-height:normal;}
+#about-us #team ul li figure figcaption .team_description{padding-top:15px; border-top:1px solid #FFFFFF;}
+
+#about-us #team ul ul{margin-top:20px; text-align:center;}
+#about-us #team ul ul li{display:inline; margin:0 0 0 6px;}
+#about-us #team ul ul li:first-child{margin-left:0;}
+#about-us #team ul ul li a{}
+#about-us #team ul ul li a img{}
