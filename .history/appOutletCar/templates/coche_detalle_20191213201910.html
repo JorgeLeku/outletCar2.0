@@ -19,7 +19,7 @@
             </header>
             <div class="post-description">
                 <p>{{ coche.descripcion }}</p>
-                <img src="{%static coche.fotoCoche_set.fotoCoche%}">
+                <img src="{% coche.fotoCoche.fotoCoche%}">
             </div>
         </section>
     {% else %}
