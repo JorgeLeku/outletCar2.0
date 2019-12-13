@@ -1,3 +1,5 @@
+{% extends "base.html" %}{% load crispy_forms_tags %}
+
 {% block titulo %}Detalles del coce{% endblock %}
 
 {% block contenido %}
@@ -5,27 +7,63 @@
     <h1 class="content-subhead">{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
     {% if coche %}
         <section class="post">
-            <!--{% if fotoCoche.fotoCoche %}
+            {% if coche.fotoCoche %}
                 {% load static %}
+                
 
-            {% endif %}-->
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                      <li data-target="#myCarousel" data-slide-to="4"></li>
+                      <li data-target="#myCarousel" data-slide-to="5"></li>
+                  </ol>
+                  
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                      {% for p in coche.fotoCoche %}
+                      {% if forloop.counter == 1 %}
+                      <div class="item active">
+                      {% else %}
+                      <div class="item">
+                      {% endif %}
+                      <img class="post-avatar" src="{% static coche.fotoCoche.fotoCoche %}" />
+                    <div class="carousel-caption">
+
+                    </div>
+                      </div>
+                      {% endfor %}
+                      </div>
+                  
+                      <!-- Left and right controls -->
+                      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                      </a>
+                  </div>
+
+
+
+
+                
+               
+            {% endif %}
             <header class="post-header">
                 <h2 class="post-title">{{ coche.modelo }}</h2>
                 <p class="post-meta">{{ coche.marca }}</p>
             </header>
             <div class="post-description">
                 <p>{{ coche.descripcion }}</p>
-                {% for imagenes in fotoCoches %}
-                <img src="{{imagenes.fotoCoche.url}}">
-                {% endfor %}
+                <img src="{%static coche.fotoCoche_set.fotoCoche%}">
             </div>
         </section>
-
-
-        
-
-
-
     {% else %}
         <section class="post">
             <header class="post-header">

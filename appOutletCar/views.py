@@ -9,11 +9,13 @@ from .forms import CommentForm, cocheForm, ImageForm
 from .models import Coche, FotoCoche, Marca, Modelo, Lugar, TipoDeCoche, User
 from .filters import FiltroCoches, FiltroCochesNuevos, FiltroCochesKm0
 from django.views.generic import CreateView
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from appOutletCar.forms import UserForm, UserProfileInfoForm
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib import messages
 from django.forms import modelformset_factory
+
 # Create your views here.
 # Devuelve el listado de posts
 
@@ -27,6 +29,25 @@ class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('home.html')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'change_password.html', {
+        'form': form
+    })
+
+
 class HomePageView(TemplateView):
 
     template_name = "home.html"
@@ -123,18 +144,20 @@ def añadirCoche(request):
 
 def DetailViewCoches(request, coche_id):
     template_name = 'coche_detalle.html'
-    coche = get_object_or_404(Coche, id=coche_id)
+    coches = get_object_or_404(Coche, id=coche_id)
     usuario = request.user
-    comments = coche.comments.filter(active=True)
+    comments = coches.comments.filter(active=True)
+    fotoCoche = FotoCoche.objects.filter(coche=coches)
     new_comment = None
     # Comment posted
+    
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             # Create Comment object but don't save to database yet
             new_comment = comment_form.save(commit=False)
             # Assign the current coche to the comment
-            new_comment.coche = coche
+            new_comment.coche = coches
             new_comment.usuario = usuario
             # Save the comment to the database
             
@@ -144,7 +167,8 @@ def DetailViewCoches(request, coche_id):
 
     
 
-    return render(request, template_name, {'coche': coche,
+    return render(request, template_name, {'coche': coches,
+                                            'fotoCoches': fotoCoche,
                                            'comments': comments,
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
