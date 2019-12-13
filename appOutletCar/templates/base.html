@@ -30,7 +30,7 @@
                 <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:nuestrasMarcas'%}" class="pure-menu-link">NUESTRAS MARCAS</a></li>
                 {% if user.is_authenticated %}
 					<li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:añadirCoche'%}" class="pure-menu-link">AÑADIR COCHE</a></li>
-                    HOLA {{ user.username }}!<a href="{% url 'logout' %}">logout</a>
+                    HOLA {{ user.username }}! <a  class="logout" href="{% url 'logout' %}">  Cerrar sesión</a>
                     
                 {% else %}
                 <li class="pure-menu-item"><a href="{% url 'login' %}" class="pure menu-link" >INICIO SESION</a></li>
@@ -47,11 +47,37 @@
     <div class="footer">
         <div class="pure-menu pure-menu-horizontal">
             <ul>
-                <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>
+                <li class="pure-menu-item"><a href="https://www.facebook.com/OutletCar-104406484393552/?modal=admin_todo_tour" class="pure-menu-link">Facebook</a></li>
                 <li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a></li>
                 <li class="pure-menu-item"><a href="https://github.com/JorgeLeku/outletCar2.0" class="pure-menu-link">GitHub</a></li>
             </ul>
         </div>
     </div>
+    <script>$(document).ready(function(){
+        $("a.pure-menu-link").click(function(evento){     
+        if(confirm("Se le redirigirá a otra pagina. ¿Desea continuar?")){
+        $("#delete-button").attr("href", "query.php?ACTION=delete&ID='1'");
+    }
+    else{
+        return false;
+    }
+    });
+  });
+  
+  </script>
 </body>
+
+
+<script>$(document).ready(function(){
+    $("a.logout").click(function(evento){     
+        if(confirm("¿Está seguro de que desea cerrar sesión?")){
+        $("#delete-button").attr("href", "query.php?ACTION=delete&ID='1'");
+    }
+    else{
+        return false;
+    }
+    });
+  });
+  
+  </script>
 </html>
