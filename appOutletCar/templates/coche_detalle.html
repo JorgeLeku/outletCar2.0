@@ -1,5 +1,3 @@
-{% extends "base.html" %}{% load crispy_forms_tags %}
-
 {% block titulo %}Detalles del coce{% endblock %}
 
 {% block contenido %}
@@ -7,21 +5,27 @@
     <h1 class="content-subhead">{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
     {% if coche %}
         <section class="post">
-            {% if coche.fotoCoche %}
+            <!--{% if fotoCoche.fotoCoche %}
                 {% load static %}
 
-                <img alt="{{ coche.fotoCoche.fotoCoche }}" class="post-avatar" src="{% static coche.fotoCoche.fotoCoche %}" />
-               
-            {% endif %}
+            {% endif %}-->
             <header class="post-header">
                 <h2 class="post-title">{{ coche.modelo }}</h2>
                 <p class="post-meta">{{ coche.marca }}</p>
             </header>
             <div class="post-description">
                 <p>{{ coche.descripcion }}</p>
-                <img src="{%static coche.fotoCoche_set.fotoCoche%}">
+                {% for imagenes in fotoCoches %}
+                <img src="{{imagenes.fotoCoche.url}}">
+                {% endfor %}
             </div>
         </section>
+
+
+        
+
+
+
     {% else %}
         <section class="post">
             <header class="post-header">
