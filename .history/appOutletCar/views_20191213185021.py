@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.views import View, generic
 from django.template import Context, loader
-from .forms import CommentForm, cocheForm, ImageForm
+from .forms import CommentForm, cocheForm
 from .models import Coche, FotoCoche, Marca, Modelo, Lugar, TipoDeCoche, User
 from .filters import FiltroCoches, FiltroCochesNuevos, FiltroCochesKm0
 from django.views.generic import CreateView
@@ -13,7 +13,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from appOutletCar.forms import UserForm, UserProfileInfoForm
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import modelformset_factory
 # Create your views here.
 # Devuelve el listado de posts
 class SignUp(generic.CreateView):
@@ -87,32 +86,26 @@ class CocheCreateView(CreateView):
 
 def añadirCoche(request):
     # if this is a POST request we need to process the form data
-    ImageFormSet = modelformset_factory(FotoCoche,
-                                        form=ImageForm, extra=3)
+
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = cocheForm(request.POST)
-        formset = ImageFormSet(request.POST, request.FILES,
-                               queryset=FotoCoche.objects.none())
+        ImageFormSet = modelformset_factory(FotoCoche,
+                                        form=ImageForm, extra=3)
         # check whether it's valid:
-        if form.is_valid() and formset.is_valid():
-            coche = form.save()
-            coche.usuario= request.user
-            coche.save()
-            for form in formset.cleaned_data:
-                image = form['image']
-                photo = FotoCoche(coche=coche, fotoCoche=image)
-                photo.save()
+        if form.is_valid():
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            
+            coche = form.save()
+            coche.usuario= request.user
+            coche.save()
             return HttpResponseRedirect(reverse_lazy('appOutletCar:home'))
     # if a GET (or any other method) we'll create a blank form
     else:
         form = cocheForm()
-        formset = ImageFormSet(queryset=FotoCoche.objects.none())
-    return render(request, 'añadirCoche.html', {'form': form, 'formset': formset})
+
+    return render(request, 'añadirCoche.html', {'form': form})
 
 def DetailViewCoches(request, coche_id):
     template_name = 'coche_detalle.html'

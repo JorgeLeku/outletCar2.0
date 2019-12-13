@@ -107,6 +107,8 @@ def añadirCoche(request):
             # ...
             # redirect to a new URL:
             
+            else:
+                print (form.errors, formset.errors)
             return HttpResponseRedirect(reverse_lazy('appOutletCar:home'))
     # if a GET (or any other method) we'll create a blank form
     else:

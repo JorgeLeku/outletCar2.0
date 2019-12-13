@@ -13,7 +13,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from appOutletCar.forms import UserForm, UserProfileInfoForm
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import modelformset_factory
 # Create your views here.
 # Devuelve el listado de posts
 class SignUp(generic.CreateView):
@@ -96,23 +95,21 @@ def añadirCoche(request):
                                queryset=FotoCoche.objects.none())
         # check whether it's valid:
         if form.is_valid() and formset.is_valid():
-            coche = form.save()
-            coche.usuario= request.user
-            coche.save()
-            for form in formset.cleaned_data:
-                image = form['image']
-                photo = FotoCoche(coche=coche, fotoCoche=image)
-                photo.save()
+            image = form['image']
+            photo = FotoCoche(post=post_form, image=fotoCoche)
+            photo.save()
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            
+            coche = form.save()
+            coche.usuario= request.user
+            coche.save()
             return HttpResponseRedirect(reverse_lazy('appOutletCar:home'))
     # if a GET (or any other method) we'll create a blank form
     else:
         form = cocheForm()
-        formset = ImageFormSet(queryset=FotoCoche.objects.none())
-    return render(request, 'añadirCoche.html', {'form': form, 'formset': formset})
+
+    return render(request, 'añadirCoche.html', {'form': form})
 
 def DetailViewCoches(request, coche_id):
     template_name = 'coche_detalle.html'

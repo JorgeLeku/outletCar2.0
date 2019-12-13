@@ -101,12 +101,14 @@ def añadirCoche(request):
             coche.save()
             for form in formset.cleaned_data:
                 image = form['image']
-                photo = FotoCoche(coche=coche, fotoCoche=image)
+                photo = FotoCoche(post=coche, image=image)
                 photo.save()
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
             
+            else:
+                print (form.errors, formset.errors)
             return HttpResponseRedirect(reverse_lazy('appOutletCar:home'))
     # if a GET (or any other method) we'll create a blank form
     else:
