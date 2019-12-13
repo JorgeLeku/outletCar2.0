@@ -1,0 +1,97 @@
+{% block titulo %}Detalles del coce{% endblock %}
+
+{% block contenido %}
+<div class="posts">
+    <h1 class="content-subhead">{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
+    {% if coche %}
+        <section class="post">
+            <!--{% if fotoCoche.fotoCoche %}
+                {% load static %}
+
+            {% endif %}-->
+            <header class="post-header">
+                <h2 class="post-title">{{ coche.modelo }}</h2>
+                <p class="post-meta">{{ coche.marca }}</p>
+            </header>
+            <div class="post-description">
+                <p>{{ coche.descripcion }}</p>
+                {% for imagenes in fotoCoches %}
+                <img src="{{imagenes.fotoCoche.url}}">
+                {% endfor %}
+            </div>
+        </section>
+
+
+        
+
+
+
+    {% else %}
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title">No existe este post.</h2>
+                <p class="post-meta">No existe este post.</p>
+            </header>
+            <div class="post-description">
+                <p>No existe este post.</p>
+            </div>
+        </section>
+    {% endif %}
+
+
+
+
+
+    <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="card-body">
+          <!-- comments -->
+          {% with comments.count as total_comments %}
+          <h2>{{ total_comments }} comments</h2>
+  
+          <p>
+            {% endwith %} {% for comment in comments %}
+          </p>
+  
+          <div class="comments" style="padding: 10px;">
+            <p class="font-weight-bold">
+              {{ comment.usuario }}
+              <span class=" text-muted font-weight-normal">
+                {{ comment.created_on }}
+              </span>
+            </p>
+            {{ comment.body | linebreaks }}
+          </div>
+  
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="card-body">
+          
+          {% if new_comment %}
+          <div class="alert alert-success" role="alert">
+            Your comment is awaiting moderation
+          </div>
+          {% else %}
+          {% if user.is_authenticated %}
+          <h3>Leave a comment</h3>
+          <form method="post" style="margin-top: 1.3em;">
+            
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6 mb-0">
+                {{comment_form.body|as_crispy_field}}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+          </form>
+          {%else%}
+            <a href="{% url 'login'%}" class="btn btn-primary  btn-lg">Iniciar sesion</a>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
