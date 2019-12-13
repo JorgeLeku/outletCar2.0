@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
@@ -98,7 +98,8 @@ def añadirCoche(request):
             coche = form.save()
             coche.usuario= request.user
             coche.save()
-            return HttpResponseRedirect(reverse_lazy('appOutletCar:home'))
+            return redirect('HomePageView')
+
     # if a GET (or any other method) we'll create a blank form
     else:
         form = cocheForm()
