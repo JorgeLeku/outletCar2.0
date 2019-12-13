@@ -30,7 +30,7 @@
                 <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:nuestrasMarcas'%}" class="pure-menu-link">NUESTRAS MARCAS</a></li>
                 {% if user.is_authenticated %}
 					<li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:añadirCoche'%}" class="pure-menu-link">AÑADIR COCHE</a></li>
-                    HOLA {{ user.username }}!<a  class="logout" href="{% url 'logout' %}">logout</a>
+                    HOLA {{ user.username }}! <a  class="logout" href="{% url 'logout' %}">  Cerrar sesión</a>
                     
                 {% else %}
                 <li class="pure-menu-item"><a href="{% url 'login' %}" class="pure menu-link" >INICIO SESION</a></li>
@@ -54,10 +54,17 @@
         </div>
     </div>
 </body>
+
 <script>$(document).ready(function(){
-    $("logout").click(function(evento){
-       alert("Ha cerrado sesión");
+    $("a.logout").click(function(evento){     
+        if(confirm("¿Está seguro de que desea cerrar sesión?")){
+        $("#delete-button").attr("href", "query.php?ACTION=delete&ID='1'");
+    }
+    else{
+        return false;
+    }
     });
   });
+  
   </script>
 </html>
