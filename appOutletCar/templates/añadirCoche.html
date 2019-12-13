@@ -15,8 +15,17 @@
 
 	{% block contenido %}
     <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+    <form id="post_form" method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p }}
+		
+
+		
+
+    	{{ formset.management_form }}
+    	{% for form in formset %}
+        	{{ form }}
+    	{% endfor %}
+
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock contenido%}
