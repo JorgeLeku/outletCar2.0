@@ -1,9 +1,3 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Formulario">
     <title>{% block titulo %}outletCar{% endblock %}</title>
 	{% block css %}
 		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
@@ -16,95 +10,14 @@
 		<link rel="stylesheet" href="{% static 'css/layouts/gallery.css' %}">
 	{% endblock %}
 
-</head>
-<body>
-    <form  action="" method="">
-	<div>
-		Marca:<br>
-		<input type="text" name="marca"><br>
-	</div>
+    
 
-	<div>
-		Modelo:<br>
-		<input type="text" name="modelo"><br>
-	</div>
-	
-	<div>
-		Año:<br>
-		<input type="text" name="anyo"><br>
-	</div>
 
-	<div>
-		Estado:<br>
-		<input type="text" name="estado"><br>
-	</div>
-
-	<div>
-		Número de bastidor:<br>
-		<input type="text" name="n_bastidor"><br>
-	</div>
-
-	<div>
-		Color:<br>
-		<input type="text" name="color"><br>
-	</div>
-
-	<div>
-		Kilometros:<br>
-		<input type="text" name="n_km"> <label> Km </label><br>
-	</div>
-
-	<div>
-		Combustible:<br>
-		<input type="text" name="combustible"><br>
-	</div>
-
-	<div>
-		Potencia:<br>
-		<input type="text" name="potencia"><label> Cv </label><br>
-	</div>
-
-	<div>
-		Precio:<br>
-		<input type="text" name="precio"><label>€</label><br>
-	</div>
-
-	<div>
-		Tipo de cambio:<br>
-		<input type="text" name="cambio"><br>
-	</div>
-
-	<div>
-		Consumo:<br>
-		<input type="text" name="consumo"><label>l/100km</label><br>
-	</div>
-
-	<div>
-		Comentario:<br>
-		<textarea id="msg"></textarea> </br>
-	</div>
-
-	<div>
-		Lugar:<br>
-		<input type="text" name="lugar"><br>
-	</div>
-
-	 <button type="submit">Añadir Coche</button>
-
-</form>
-
-    {% block contenido %}
-
-    {% endblock contenido %}
-    <div class="footer">
-        <div class="pure-menu pure-menu-horizontal">
-            <ul>
-                <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>
-                <li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a></li>
-                <li class="<li class="pure-menu-item"><a href="https://github.com/JorgeLeku/outletCar2.0" class="pure-menu-link">GitHub</a></li>" class="pure-menu-link">GitHub</a></li>
-            </ul>
-        </div>
-    </div>
-</body>
-</html>
+	{% block contenido %}
+    <h2>New post</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock contenido%}
  

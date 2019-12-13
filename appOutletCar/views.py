@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.views import View, generic
 from django.template import Context, loader
-from .forms import CommentForm
+from .forms import CommentForm, cocheForm
 from .models import Coche, FotoCoche, Marca, Modelo, Lugar, TipoDeCoche, User
 from .filters import FiltroCoches, FiltroCochesNuevos, FiltroCochesKm0
 from django.views.generic import CreateView
@@ -82,6 +82,28 @@ class CocheCreateView(CreateView):
 #        context['orderby'] = self.request.GET.get('orderby', 'n_bastidor')
 #        return context
 
+
+
+def añadirCoche(request):
+    # if this is a POST request we need to process the form data
+
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = cocheForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            coche = form.save()
+            coche.usuario= request.user
+            coche.save()
+            
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = cocheForm()
+
+    return render(request, 'añadirCoche.html', {'form': form})
 
 def DetailViewCoches(request, coche_id):
     template_name = 'coche_detalle.html'
@@ -198,11 +220,3 @@ class quienesSomos(TemplateView):
         context = super().get_context_data(**kwargs)
         return context
     
-class añadirCoche(TemplateView):
-
-    template_name = "añadirCoche.html"
-    model = Coche
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context

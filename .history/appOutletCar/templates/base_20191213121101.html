@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">    
+    <title>{% block titulo %}outletCar{% endblock %}</title>
+    {% block css %}    
+            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
+            <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/layouts/gallery.css' %}">
+    {% endblock %}
+    {% block javascript %}
+    {% endblock %}
+</head>
+<body>
+    <div class="header">
+        <div class="pure-menu pure-menu-horizontal">
+            <a class="pure-menu-heading" href="{% url 'appOutletCar:home'%}">OUTLET CAR</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:quienesSomos'%}" class="pure-menu-link">QUIENES SOMOS</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:tiposDeCoche'%}" class="pure-menu-link">TIPOS DE COCHE</a></li>
+                <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:nuestrasMarcas'%}" class="pure-menu-link">NUESTRAS MARCAS</a></li>
+                {% if user.is_authenticated %}
+					<li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:añadirCoche'%}" class="pure-menu-link">AÑADIR COCHE</a></li>
+                    HOLA {{ user.username }}!<a href="{% url 'logout' %}">logout</a>
+                    
+                {% else %}
+                <li class="pure-menu-item"><a href="{% url 'login' %}" class="pure menu-link" >INICIO SESION</a></li>
+                <li class="pure-menu-item"><a href="{% url 'appOutletCar:signup'%}" class="pure menu-link" class="sesion">REGISTRATE</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+    
+    {% block contenido %}
+        
+    {% endblock contenido %}
+    <div class="footer">
+        <div class="pure-menu pure-menu-horizontal">
+            <ul>
+                <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>
+                <li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a></li>
+                <li class="pure-menu-item"><a href="https://github.com/JorgeLeku/outletCar2.0" class="pure-menu-link">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

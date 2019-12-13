@@ -25,9 +25,9 @@ class ImageForm(forms.ModelForm):
         model = FotoCoche
         fields = ('image', )
         
-class AñadirCocheForm(forms.ModelForm):
+class cocheForm(forms.ModelForm):
 
     class Meta:
         model = Coche
+        fields = ('usuario', 'modelo', 'anyo','estado', 'n_bastidor','color', 'n_km','combustible', 'potencia','precio', 'cambio','consumo', 'comentario','lugar')
 
-        fields = ('modelo', 'anyo','estado', 'n_bastidor','color', 'n_km','combustible', 'potencia','precio', 'cambio','consumo', 'comentario','lugar')
