@@ -1,0 +1,38 @@
+{% extends "base.html" %}<title>{% block titulo %}outletCar{% endblock %}</title>
+	{% block css %}
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	{% load static %}
+		<link rel="stylesheet" href="{% static 'css/layouts/añadirCoches.css' %}">
+		<link rel="stylesheet" href="{% static 'css/layouts/gallery.css' %}">
+	{% endblock %}
+
+    
+
+
+	{% block contenido %}
+    <form id="post_form" method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+		{{ form.as_p }}
+		{% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+
+    {% for field in form %}
+        {{ field }} <br />
+    {% endfor %}
+
+		
+
+    	{{ formset.management_form }}
+    	{% for form in formset %}
+        	{{ form }}
+    	{% endfor %}
+
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock contenido%}
+ 

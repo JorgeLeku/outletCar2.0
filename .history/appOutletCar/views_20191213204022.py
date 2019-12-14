@@ -115,7 +115,7 @@ class CocheCreateView(CreateView):
 
 def añadirCoche(request):
     # if this is a POST request we need to process the form data
-    ImageFormSet = modelformset_factory(FotoCoche, form=ImageForm, extra=5)
+    ImageFormSet = modelformset_factory(FotoCoche, form=ImageForm, extra=1)
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = cocheForm(request.POST)

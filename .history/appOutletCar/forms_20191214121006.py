@@ -20,32 +20,18 @@ class UserProfileInfoForm(forms.ModelForm):
 
 
 # iterable 
-
+ESTADO_CHOICE =( 
+    ("1", "Nuevo"), 
+    ("2", "Segunda mano"), 
+    ("3", "Km0"), 
+) 
         
 class cocheForm(forms.ModelForm):
 
     class Meta:
         model = Coche
         fields = ('usuario', 'modelo', 'anyo','estado', 'n_bastidor','color', 'n_km','combustible', 'potencia','precio', 'cambio','consumo', 'comentario','lugar')
-        ESTADO_CHOICE =( 
-            ("Nuevo", "Nuevo"), 
-            ("Segunda mano", "Segunda mano"), 
-            ("Km0", "Km0"), 
-        ) 
-        COMBUSTIBLE_CHOICE =( 
-            ("Diesel", "Diesel"), 
-            ("Gasolina", "Gasolina"), 
-            ("Electrico", "Electrico"), 
-        ) 
-        CAMBIO_CHOICE =( 
-            ("Manual", "Manual"), 
-            ("Automatico", "Automatico"), 
-        ) 
-        widgets = {
-            'estado': forms.Select(choices=ESTADO_CHOICE,attrs={'class': 'form-control'}),
-            'combustible': forms.Select(choices=COMBUSTIBLE_CHOICE,attrs={'class': 'form-control'}),
-            'cambio': forms.Select(choices=CAMBIO_CHOICE,attrs={'class': 'form-control'}),
-        }
+        
         
         
         

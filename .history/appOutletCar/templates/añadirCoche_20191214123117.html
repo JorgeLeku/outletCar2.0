@@ -1,0 +1,26 @@
+{% extends "base.html" %}{% load crispy_forms_tags %}
+<title>{% block titulo %}outletCar{% endblock %}</title>
+	
+
+    
+
+
+	{% block contenido %}
+
+	
+    <form id="post_form" method="POST" action="" style="margin-top: 1.3em;" enctype="multipart/form-data">{% csrf_token %}
+		<div class="form-row">
+			<div class="form-group col-md-6 mb-0">
+				{{ form.as_p }}
+				{{formset.as_p}}
+			</div>
+		</div>		
+		<button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+		
+
+		
+
+
+    </form>
+{% endblock contenido%}
+ 

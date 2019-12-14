@@ -115,21 +115,26 @@ class CocheCreateView(CreateView):
 
 def añadirCoche(request):
     # if this is a POST request we need to process the form data
-    ImageFormSet = modelformset_factory(FotoCoche, form=ImageForm, extra=5)
+    ImageFormSet = modelformset_factory(FotoCoche,
+                                        form=ImageForm, extra=5)
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = cocheForm(request.POST)
-        formset = ImageFormSet(request.POST, request.FILES, queryset=FotoCoche.objects.none())
+        formset = ImageFormSet(request.POST, request.FILES,
+                               queryset=FotoCoche.objects.none())
         # check whether it's valid:
         if form.is_valid() and formset.is_valid():
             coche = form.save()
             coche.usuario= request.user
             coche.save()
             for form in formset.cleaned_data:
-                image = form['image']
+                
                 photo = FotoCoche(coche=coche, fotoCoche=image)
                 photo.save()
-
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            
             return HttpResponseRedirect(reverse_lazy('appOutletCar:home'))
     # if a GET (or any other method) we'll create a blank form
     else:

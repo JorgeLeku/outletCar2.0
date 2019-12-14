@@ -32,19 +32,14 @@ class cocheForm(forms.ModelForm):
             ("Segunda mano", "Segunda mano"), 
             ("Km0", "Km0"), 
         ) 
-        COMBUSTIBLE_CHOICE =( 
+        ESTADO_CHOICE =( 
             ("Diesel", "Diesel"), 
             ("Gasolina", "Gasolina"), 
             ("Electrico", "Electrico"), 
         ) 
-        CAMBIO_CHOICE =( 
-            ("Manual", "Manual"), 
-            ("Automatico", "Automatico"), 
-        ) 
         widgets = {
             'estado': forms.Select(choices=ESTADO_CHOICE,attrs={'class': 'form-control'}),
             'combustible': forms.Select(choices=COMBUSTIBLE_CHOICE,attrs={'class': 'form-control'}),
-            'cambio': forms.Select(choices=CAMBIO_CHOICE,attrs={'class': 'form-control'}),
         }
         
         

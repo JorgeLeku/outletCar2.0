@@ -37,14 +37,9 @@ class cocheForm(forms.ModelForm):
             ("Gasolina", "Gasolina"), 
             ("Electrico", "Electrico"), 
         ) 
-        CAMBIO_CHOICE =( 
-            ("Manual", "Manual"), 
-            ("Automatico", "Automatico"), 
-        ) 
         widgets = {
             'estado': forms.Select(choices=ESTADO_CHOICE,attrs={'class': 'form-control'}),
             'combustible': forms.Select(choices=COMBUSTIBLE_CHOICE,attrs={'class': 'form-control'}),
-            'cambio': forms.Select(choices=CAMBIO_CHOICE,attrs={'class': 'form-control'}),
         }
         
         

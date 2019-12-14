@@ -119,7 +119,7 @@ def añadirCoche(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = cocheForm(request.POST)
-        formset = ImageFormSet(request.POST, request.FILES, queryset=FotoCoche.objects.none())
+        
         # check whether it's valid:
         if form.is_valid() and formset.is_valid():
             coche = form.save()
