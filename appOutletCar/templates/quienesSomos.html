@@ -1,5 +1,4 @@
 {% extends 'base.html' %}{% load static %}{% load bootstrap %}
-
 {% block css %}
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
@@ -26,7 +25,7 @@ body {font-family: "Lato", sans-serif}
 <body align="center">
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:100%;margin-top:46px">
+<div class="w3-content" style="max-width:100%;">
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
@@ -55,7 +54,7 @@ body {font-family: "Lato", sans-serif}
     <h2 class="w3-wide">¿Quienes somos?</h2>
     <p class="w3-opacity"><i>outlet Car</i></p>
     <p class="w3-justify">
-                        <p>Bienvenido a outletCar, su fuente número uno para todas las compras y ventas de automoviles. Estamos dedicados a brindarle lo mejor de las compraventas online, con un enfoque en seguridad, fiabilidad y seriedad.</p>
+                        <i><p>Bienvenido a outletCar, su fuente número uno para todas las compras y ventas de automoviles. Estamos dedicados a brindarle lo mejor de las compraventas online, con un enfoque en seguridad, fiabilidad y seriedad.</p>
 
                         <p>Fundada en 1997 por Asier Moreno, outletCar ha recorrido un largo camino desde sus inicios en Ortuella. Cuando Asier comenzó, su pasión por los diferentes tipos de automoviles le llevaron a dejar el trabajo diario para que outletCar pueda ofrecerle una gran atencion personalizada. Ahora servimos a clientes en toda España, y estamos encantados de poder convertir nuestra pasión en nuestro propio sitio web.</p>
 
@@ -63,35 +62,32 @@ body {font-family: "Lato", sans-serif}
 
                         <p>Sinceramente,</p>
 
-                        <p>Asier Moreno</p></p>
+                        <p>Asier Moreno</p></i></p>
 
     <div class="w3-row w3-padding-32">
       <div class="w3-third">
         <p>Eduardo Rodriguez</p>
-        <img src="../static/img/er.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        <img src="../static/img/er.jpg" class="w3-round w3-margin-bottom" alt="Eduardo Rodriguez" style="width:60%">
         <p>Director Financiero</p>
         <p>Universidad de Deusto;</p>
-        <p>Licenciado en derecho y <br>economia</p>
-        <p>"Llevo las cuentas y los conceptos<br> legales siempre actualizados con el <br>sueño de que esto no pare de crecer."</p>
+        <p>Licenciado en derecho y economia</p>
+        <p>"Llevo las cuentas y los conceptos legales siempre actualizados con el sueño de que esto no pare de crecer."</p>
       </div>
       <div class="w3-third">
         <p>Aitor Bonilla</p>
-        <img src="../static/img/ab.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        <img src="../static/img/ab.png" class="w3-round w3-margin-bottom" alt="Aitor Bonilla" style="width:60%">
         <p>Director Marketing</p>
         <p>Universidad del Pais Vasco;</p>
-        <p>Licenciado en marketing y <br>direccion comercial</p>
-        <p>"Junto a Mikel Moreno estamos<br>
-        llevando outletCar a otro nivel nunca<br> antes alcanzado."</p>
+        <p>Licenciado en marketing y direccion comercial</p>
+        <p>"Junto a Mikel Moreno estamos llevando outletCar a otro nivel nunca antes alcanzado."</p>
       </div>
       <div class="w3-third">
         <p>Adolfo Cesar Velazquez</p>
-        <img src="../static/img/acv.jpg" class="w3-round" alt="Random Name" style="width:60%">
+        <img src="../static/img/acv.jpg" class="w3-round" alt="Adolfo Cesar Velazquez" style="width:60%">
         <p>Director TIC</p>
         <p>Universidad de Deusto;</p>
         <p>Ingeniero en informatica</p>
-        <p>"En cuanto acabé la carrera se<br>
-        pusieron en contacto conmigo, no podia<br>rechazar la oferta de reinvencion de<br>
-        una empresa mitica."</p>
+        <p>"En cuanto acabé la carrera se pusieron en contacto conmigo, no podia rechazar la oferta de reinvencion de una empresa mitica."</p>
       </div>
     </div>
   </div>
@@ -103,11 +99,11 @@ body {font-family: "Lato", sans-serif}
     <div class="w3-row w3-padding-32">
       <div class="w3-col m6 w3-large w3-margin-bottom">
         <i class="fa fa-map-marker" style="width:30px"></i> Leioa, Vizcaya<br>
-        <i class="fa fa-phone" style="width:30px"></i> Phone: +34 699746399<br>
+        <i class="fa fa-phone" style="width:30px"></i> Tlfn.: +34 699746399<br>
         <i class="fa fa-envelope" style="width:30px"> </i> Email: outletcar@outletcar.es<br>
       </div>
       <div class="w3-col m6">
-        <form target="blank">
+        <form action="mailto:outletcar@outletcar.es" method="post" enctype="text/plain">
           <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
             <div class="w3-half">
               <input class="w3-input w3-border w3-text-black" type="text" placeholder="Nombre" required name="Nombre">
