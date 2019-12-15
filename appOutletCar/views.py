@@ -15,10 +15,14 @@ from appOutletCar.forms import UserForm, UserProfileInfoForm
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib import messages
 from django.forms import modelformset_factory
+from django.utils.translation import gettext as _
 
 # Create your views here.
 # Devuelve el listado de posts
 
+def index(request):
+    text = _("this is some random text")
+    return render(request, 'añadirCoche.html', { 'text': text })
 
 
 def ajax(request, coche_id):
