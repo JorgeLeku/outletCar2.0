@@ -1,32 +1,9 @@
-{% extends "base.html" %}{% load crispy_forms_tags %}{% load bootstrap %}{% load static %}
+{% extends "base.html" %}{% load crispy_forms_tags %}
 {% block titulo %}Detalles del coche{% endblock %}
-{% block css %}
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="{% static 'css/layouts/datos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layouts/about-us.css' %}">
-    <link rel="stylesheet" href="{% static 'css/layouts/framework.css' %}">
-{% endblock css %}
-{% block javascript %}
-    <link type=""text/javascript"" href="{% static 'js/fotos.js' %}">
-{% endblock %}
-{% block contenido %}
-
-<!DOCTYPE html>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block css%}
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-</style>
-<div align="center">
-
+{%endblock %}
+{% block contenido %}
 <div class="posts">
     <h1 class="content-subhead">{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
     {% if coche %}
@@ -44,19 +21,13 @@ body {font-family: "Lato", sans-serif}
             </div>
         </section>
 
+        {% for imagenes in fotoCoches %}
+                
+        <div class="mySlides w3-display-container w3-center">
+          <img src="{{imagenes.fotoCoche.url}}">
+        </div>
         
-        <div class="w3-content" style="max-width:100%;">
-          {% for imagenes in fotoCoches %}  
-          <!-- Automatic Slideshow Images -->
-          <script type= "text/javascript" src="{% static 'js/fotos.js' %}"></script>
-          <div class="mySlides w3-display-container w3-center">
-            <img src="{{imagenes.fotoCoche.url}}"  style="width:50%">
-            
-          </div>
-        </script> 
-          {% endfor %}
-        </div>                
-      
+                {% endfor %}
 
 
 
@@ -127,10 +98,5 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
 </div>
-
-
-
-
-  
 
 {% endblock %}

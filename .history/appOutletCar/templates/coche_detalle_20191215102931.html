@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="{% static 'css/layouts/about-us.css' %}">
     <link rel="stylesheet" href="{% static 'css/layouts/framework.css' %}">
 {% endblock css %}
-{% block javascript %}
-    <link type=""text/javascript"" href="{% static 'js/fotos.js' %}">
-{% endblock %}
+    
 {% block contenido %}
 
 <!DOCTYPE html>
-
+<html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,7 +23,7 @@
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
-<div align="center">
+<body align="center">
 
 <div class="posts">
     <h1 class="content-subhead">{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
@@ -44,19 +42,12 @@ body {font-family: "Lato", sans-serif}
             </div>
         </section>
 
-        
-        <div class="w3-content" style="max-width:100%;">
-          {% for imagenes in fotoCoches %}  
-          <!-- Automatic Slideshow Images -->
-          <script type= "text/javascript" src="{% static 'js/fotos.js' %}"></script>
-          <div class="mySlides w3-display-container w3-center">
-            <img src="{{imagenes.fotoCoche.url}}"  style="width:50%">
-            
-          </div>
-        </script> 
-          {% endfor %}
-        </div>                
-      
+        {% for imagenes in fotoCoches %}
+                
+        <div class="mySlides w3-display-container w3-center">
+          <img src="{{imagenes.fotoCoche.url}}">
+        </div>
+        {% endfor %}
 
 
 
@@ -127,10 +118,5 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
 </div>
-
-
-
-
-  
 
 {% endblock %}

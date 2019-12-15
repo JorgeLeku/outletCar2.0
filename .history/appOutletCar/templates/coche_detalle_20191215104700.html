@@ -44,19 +44,20 @@ body {font-family: "Lato", sans-serif}
             </div>
         </section>
 
-        
+       
         <div class="w3-content" style="max-width:100%;">
           {% for imagenes in fotoCoches %}  
           <!-- Automatic Slideshow Images -->
-          <script type= "text/javascript" src="{% static 'js/fotos.js' %}"></script>
           <div class="mySlides w3-display-container w3-center">
-            <img src="{{imagenes.fotoCoche.url}}"  style="width:50%">
-            
+            <img src="{{imagenes.fotoCoche.url}}"  style="width:100%">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+              <h3>Jon Soler</h3>
+              <p><b>¡El mejor negocio de mi vida!</b></p>   
+            </div>
           </div>
-        </script> 
           {% endfor %}
         </div>                
-      
+        
 
 
 

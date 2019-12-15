@@ -1,17 +1,16 @@
-{% extends "base.html" %}{% load crispy_forms_tags %}{% load bootstrap %}{% load static %}
+{% extends "base.html" %}{% load crispy_forms_tags %}{% load bootstrap %}
 {% block titulo %}Detalles del coche{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/layouts/datos.css' %}">
     <link rel="stylesheet" href="{% static 'css/layouts/about-us.css' %}">
     <link rel="stylesheet" href="{% static 'css/layouts/framework.css' %}">
 {% endblock css %}
-{% block javascript %}
-    <link type=""text/javascript"" href="{% static 'js/fotos.js' %}">
-{% endblock %}
+    
 {% block contenido %}
 
 <!DOCTYPE html>
@@ -24,6 +23,9 @@
 <style>
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
+element.style {
+    display: block;
+}
 </style>
 <div align="center">
 
@@ -44,19 +46,20 @@ body {font-family: "Lato", sans-serif}
             </div>
         </section>
 
-        
+       
         <div class="w3-content" style="max-width:100%;">
           {% for imagenes in fotoCoches %}  
           <!-- Automatic Slideshow Images -->
-          <script type= "text/javascript" src="{% static 'js/fotos.js' %}"></script>
           <div class="mySlides w3-display-container w3-center">
-            <img src="{{imagenes.fotoCoche.url}}"  style="width:50%">
-            
+            <img src="{{imagenes.fotoCoche.url}}"  style="width:100%">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+              <h3>Jon Soler</h3>
+              <p><b>¡El mejor negocio de mi vida!</b></p>   
+            </div>
           </div>
-        </script> 
           {% endfor %}
         </div>                
-      
+        
 
 
 
@@ -127,10 +130,5 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
 </div>
-
-
-
-
-  
-
+</body>
 {% endblock %}
