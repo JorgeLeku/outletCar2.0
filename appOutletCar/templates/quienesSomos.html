@@ -28,39 +28,40 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-content" style="max-width:100%;">
 
   <!-- Automatic Slideshow Images -->
+  {% load i18n %}
   <div class="mySlides w3-display-container w3-center">
     <img src="../static/img/p1.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Jon Soler</h3>
-      <p><b>¡El mejor negocio de mi vida!</b></p>   
+      <p><b> {% trans "¡El mejor negocio de mi vida!" %}</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
     <img src="../static/img/p2.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Ana y Mario</h3>
-      <p><b>No hemos encontrado precios tan bajos en ningun otro sitio.</b></p>    
+      <p><b>{% trans "No hemos encontrado precios tan bajos en ningun otro sitio." %}</b></p>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
     <img src="../static/img/p3.png" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Sergio</h3>
-      <p><b>Una web con infinita variedad de coches.</b></p>    
+      <p><b>{% trans "Una web con infinita variedad de coches." %}</b></p>
     </div>
   </div>
 
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">¿Quienes somos?</h2>
+    <h2 class="w3-wide">{% trans "¿Quienes somos?" %}</h2>
     <p class="w3-opacity"><i>outlet Car</i></p>
     <p class="w3-justify">
-                        <i><p>Bienvenido a outletCar, su fuente número uno para todas las compras y ventas de automoviles. Estamos dedicados a brindarle lo mejor de las compraventas online, con un enfoque en seguridad, fiabilidad y seriedad.</p>
+                        <i><p>{% trans "Bienvenido a outletCar, su fuente número uno para todas las compras y ventas de automoviles. Estamos dedicados a brindarle lo mejor de las compraventas online, con un enfoque en seguridad, fiabilidad y seriedad." %}</p>
 
-                        <p>Fundada en 1997 por Asier Moreno, outletCar ha recorrido un largo camino desde sus inicios en Ortuella. Cuando Asier comenzó, su pasión por los diferentes tipos de automoviles le llevaron a dejar el trabajo diario para que outletCar pueda ofrecerle una gran atencion personalizada. Ahora servimos a clientes en toda España, y estamos encantados de poder convertir nuestra pasión en nuestro propio sitio web.</p>
+                        <p>{% trans "Fundada en 1997 por Asier Moreno, outletCar ha recorrido un largo camino desde sus inicios en Ortuella. Cuando Asier comenzó, su pasión por los diferentes tipos de automoviles le llevaron a dejar el trabajo diario para que outletCar pueda ofrecerle una gran atencion personalizada. Ahora servimos a clientes en toda España, y estamos encantados de poder convertir nuestra pasión en nuestro propio sitio web." %}</p>
 
-                        <p>Nosotros esperamos que disfrutes de nuestros productos tanto como yo disfruté ofreciéndolos. Si tiene alguna pregunta o comentario, no dude en comunicarse con nosotros.</p>
+                        <p>{% trans "Nosotros esperamos que disfrutes de nuestros productos tanto como yo disfruté ofreciéndolos. Si tiene alguna pregunta o comentario, no dude en comunicarse con nosotros." %}</p>
 
-                        <p>Sinceramente,</p>
+                        <p>{% trans "Sinceramente," %}</p>
 
                         <p>Asier Moreno</p></i></p>
 
@@ -68,34 +69,34 @@ body {font-family: "Lato", sans-serif}
       <div class="w3-third">
         <p>Eduardo Rodriguez</p>
         <img src="../static/img/er.jpg" class="w3-round w3-margin-bottom" alt="Eduardo Rodriguez" style="width:60%">
-        <p>Director Financiero</p>
-        <p>Universidad de Deusto;</p>
-        <p>Licenciado en derecho y economia</p>
-        <p>"Llevo las cuentas y los conceptos legales siempre actualizados con el sueño de que esto no pare de crecer."</p>
+        <p>{% trans "Director Financiero" %}</p>
+        <p>{% trans "Universidad de Deusto" %}</p>
+        <p>{% trans "Licenciado en derecho y economia" %}</p>
+        <p>{% trans "Llevo las cuentas y los conceptos legales siempre actualizados con el sueño de que esto no pare de crecer." %}</p>
       </div>
       <div class="w3-third">
         <p>Aitor Bonilla</p>
         <img src="../static/img/ab.png" class="w3-round w3-margin-bottom" alt="Aitor Bonilla" style="width:60%">
-        <p>Director Marketing</p>
-        <p>Universidad del Pais Vasco;</p>
-        <p>Licenciado en marketing y direccion comercial</p>
-        <p>"Junto a Mikel Moreno estamos llevando outletCar a otro nivel nunca antes alcanzado."</p>
+        <p>{% trans "Director Marketing" %}</p>
+        <p>{% trans "Universidad del Pais Vasco" %}</p>
+        <p>{% trans "Licenciado en marketing y direccion comercial" %}</p>
+        <p>{% trans "Junto a Mikel Moreno estamos llevando outletCar a otro nivel nunca antes alcanzado." %}</p>
       </div>
       <div class="w3-third">
         <p>Adolfo Cesar Velazquez</p>
         <img src="../static/img/acv.jpg" class="w3-round" alt="Adolfo Cesar Velazquez" style="width:60%">
-        <p>Director TIC</p>
-        <p>Universidad de Deusto;</p>
-        <p>Ingeniero en informatica</p>
-        <p>"En cuanto acabé la carrera se pusieron en contacto conmigo, no podia rechazar la oferta de reinvencion de una empresa mitica."</p>
+        <p>{% trans "Director TIC" %}</p>
+        <p>{% trans "Universidad de Deusto" %}</p>
+        <p>{% trans "Ingeniero en informatica" %}</p>
+        <p>{% trans "En cuanto acabé la carrera se pusieron en contacto conmigo, no podia rechazar la oferta de reinvencion de una empresa mitica." %}</p>
       </div>
     </div>
   </div>
 
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">CONTACTO</h2>
-    <p class="w3-opacity w3-center"><i>¿Alguna duda? ¡Dejanos tu mensaje!</i></p>
+      <h2 class="w3-wide w3-center">{% trans "CONTACTO" %}</h2>
+    <p class="w3-opacity w3-center"><i>{% trans "¿Alguna duda? ¡Dejanos tu mensaje!" %}</i></p>
     <div class="w3-row w3-padding-32">
       <div class="w3-col m6 w3-large w3-margin-bottom">
         <i class="fa fa-map-marker" style="width:30px"></i> Leioa, Vizcaya<br>
