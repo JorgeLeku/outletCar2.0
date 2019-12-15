@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-14 22:09+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\base.html:29
+msgid "QUIENES SOMOS"
+msgstr "ABOUT US"
+
+#: .\templates\base.html:30
+msgid "TIPOS DE COCHE"
+msgstr "CAR TYPES"
+
+#: .\templates\base.html:31
+msgid "NUESTRAS MARCAS"
+msgstr "OUR BRANDS"
+
+#: .\templates\base.html:34
+msgid "AÑADIR COCHE"
+msgstr "ADD CAR"
+
+#: .\templates\base.html:35
+msgid "HOLA "
+msgstr "HELLO "
+
+#: .\templates\base.html:35
+msgid "Cerrar sesión "
+msgstr "Log out"
+
+#: .\templates\base.html:37
+msgid "INICIO SESION"
+msgstr "SIGN IN"
+
+#: .\templates\base.html:38
+msgid "REGISTRATE"
+msgstr "SIGN UP"
+
+#: .\templates\quienesSomos.html:36
+msgid "¡El mejor negocio de mi vida!"
+msgstr "The best bussiness in my life"
+
+#: .\templates\quienesSomos.html:43
+msgid "No hemos encontrado precios tan bajos en ningun otro sitio."
+msgstr "We haven´t found better prices anywhere"
+
+#: .\templates\quienesSomos.html:50
+msgid "Una web con infinita variedad de coches."
+msgstr "A web with a wide variety of cars"
+
+#: .\templates\quienesSomos.html:55
+msgid "¿Quienes somos?"
+msgstr "About us"
+
+#: .\templates\quienesSomos.html:58
+msgid ""
+"Bienvenido a outletCar, su fuente número uno para todas las compras y "
+"ventas de automoviles. Estamos dedicados a brindarle lo mejor de las "
+"compraventas online, con un enfoque en seguridad, fiabilidad y seriedad."
+msgstr ""
+"Welcome to outletCar, your website for all purchases and "
+"car sales. Our duty is to give you best of "
+"sales online, with security, relayability and seriousness."
+
+#: .\templates\quienesSomos.html:60
+msgid ""
+"Fundada en 1997 por Asier Moreno, outletCar ha recorrido un largo camino "
+"desde sus inicios en Ortuella. Cuando Asier comenzó, su pasión por "
+"los diferentes tipos de automoviles le llevaron a dejar el trabajo diario "
+"para que outletCar pueda ofrecerle una gran atencion personalizada. Ahora "
+"servimos a clientes en toda España, y estamos encantados de poder convertir nuestra pasión en nuestro propio sitio web."
+msgstr ""
+"Founded in 1997 by Asier Moreno, outletCar has gone through a long way "
+"from its beginnings in Ortuella. When Asier started, his passion by "
+"different types of car leaded him to leave daily work "
+"to make outletCar offer a big and particular attention. Now "
+"we serve clients all over Spain, and we are so proud of being number one in our country and become our brand in our website."
+
+#: .\templates\quienesSomos.html:62
+msgid ""
+"Nosotros esperamos que disfrutes de nuestros productos tanto como yo disfruté ofreciéndolos. Si tiene alguna pregunta o comentario, no dude en comunicarse con nosotros."
+msgstr ""
+"We expect you to enjoy our products as we do so. If you have any doubt or comment, don´t doubt on getting in contact with us"
+
+#: .\templates\quienesSomos.html:64
+msgid "Sinceramente,"
+msgstr "Yours Faithfull,"
+
+#: .\templates\quienesSomos.html:72
+msgid "Director Financiero"
+msgstr "Financial Director"
+
+#: .\templates\quienesSomos.html:73 .\templates\quienesSomos.html:89
+msgid "Universidad de Deusto"
+msgstr "University of Deusto"
+
+#: .\templates\quienesSomos.html:74
+msgid "Licenciado en derecho y economia"
+msgstr "Graduated in law and economics"
+
+#: .\templates\quienesSomos.html:75
+msgid ""
+"Llevo las cuentas y los conceptos legales siempre actualizados con el sueño"
+" de que esto no pare de crecer."
+msgstr ""
+"I look after accounts and legal concepts and update them with the dream"
+" that this is not going to stop growing up."
+
+#: .\templates\quienesSomos.html:80
+msgid "Director Marketing"
+msgstr "Marketing Director"
+
+#: .\templates\quienesSomos.html:81
+msgid "Universidad del Pais Vasco"
+msgstr "University of the Bask Country"
+
+#: .\templates\quienesSomos.html:82
+msgid "Licenciado en marketing y direccion comercial"
+msgstr "Graduated in marketing and commercial business"
+
+#: .\templates\quienesSomos.html:83
+msgid ""
+"Junto a Mikel Moreno estamos llevando outletCar a otro nivel nunca antes alcanzado."
+msgstr ""
+"With Mikel Moreno we have leadered outletCar to another lever never seen before."
+
+#: .\templates\quienesSomos.html:88
+msgid "Director TIC"
+msgstr "TIC Director"
+
+#: .\templates\quienesSomos.html:90
+msgid "Ingeniero en informatica"
+msgstr "Computering Ingenieer"
+
+#: .\templates\quienesSomos.html:91
+msgid ""
+"En cuanto acabé la carrera se pusieron en contacto conmigo, no podia rechazar la oferta de reinvencion de una empresa mitica."
+msgstr ""
+"When I finished university they contacted me, and i couldn´t refuse the offer of reinventing a well known bussiness."
+
+#: .\templates\quienesSomos.html:98
+msgid "CONTACTO"
+msgstr "CONTACT"
+
+#: .\templates\quienesSomos.html:99
+msgid "¿Alguna duda? ¡Dejanos tu mensaje!"
+msgstr "¿Any doubt? Leave us your message"
