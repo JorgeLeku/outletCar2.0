@@ -113,7 +113,7 @@ LANGUAGES = (
     ('es', ('Spanish')),
 )
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 

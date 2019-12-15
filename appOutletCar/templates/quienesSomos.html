@@ -107,14 +107,14 @@ body {font-family: "Lato", sans-serif}
         <form action="mailto:outletcar@outletcar.es" method="post" enctype="text/plain">
           <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
             <div class="w3-half">
-              <input class="w3-input w3-border w3-text-black" type="text" placeholder="Nombre" required name="Nombre">
+              <input class="w3-input w3-border w3-text-black" type="text" placeholder={% trans "Nombre" %} required name="Nombre">
             </div>
             <div class="w3-half">
-              <input class="w3-input w3-border w3-text-black" type="text" placeholder="Email" required name="Email">
+              <input class="w3-input w3-border w3-text-black" type="text" placeholder={% trans "Email" %} required name="Email">
             </div>
           </div>
-          <input class="w3-input w3-border w3-text-black" type="text" placeholder="Mensaje" required name="Mensaje">
-          <button class="w3-button w3-black w3-section w3-right" type="submit">MANDAR</button>
+          <input class="w3-input w3-border w3-text-black" type="text" placeholder={% trans "Mensaje" %} required name="Mensaje">
+          <button class="w3-button w3-black w3-section w3-right" type="submit">{% trans "MANDAR" %}</button>
         </form>
       </div>
     </div>

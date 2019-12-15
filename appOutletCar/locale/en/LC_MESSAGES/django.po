@@ -159,3 +159,19 @@ msgstr "CONTACT"
 #: .\templates\quienesSomos.html:99
 msgid "¿Alguna duda? ¡Dejanos tu mensaje!"
 msgstr "¿Any doubt? Leave us your message"
+
+#: .\templates\quienesSomos.html:99
+msgid "Nombre"
+msgstr "Name"
+
+#: .\templates\quienesSomos.html:99
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\quienesSomos.html:99
+msgid "Mensaje"
+msgstr "Message"
+
+#: .\templates\quienesSomos.html:99
+msgid "MANDAR"
+msgstr "SEND"
