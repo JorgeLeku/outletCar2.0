@@ -28,7 +28,7 @@ input, textarea {
     font: 1em sans-serif;
     border-radius: .25em;  
     border: 1px solid #ced4da;
-    
+    border
     /* Para darle el mismo tamaño a todos los campos de texto */
     width: 300px;
     -moz-box-sizing: border-box;

@@ -1,0 +1,136 @@
+{% extends "base.html" %}{% load crispy_forms_tags %}{% load bootstrap %}{% load static %}
+{% block titulo %}Detalles del coche{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="{% static 'css/layouts/datos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/about-us.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/framework.css' %}">
+{% endblock css %}
+{% block javascript %}
+    <link type=""text/javascript"" href="{% static 'js/fotos.js' %}">
+{% endblock %}
+{% block contenido %}
+
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<div align="center">
+
+<div class="posts">
+    <h1 class="content-subhead">{% block modelo %} {{ coche.modelo.marca }}|{{coche.modelo}} {% endblock modelo %}</h1>
+    {% if coche %}
+        <section class="post">
+            <!--{% if fotoCoche.fotoCoche %}
+                {% load static %}
+
+            {% endif %}-->
+            <header class="post-header">
+                <h2 class="post-title">{{ coche.modelo }}</h2>
+                <p class="post-meta">{{ coche.marca }}</p>
+            </header>
+            <div class="post-description">
+                <p>{{ coche.comentario }}</p>
+            </div>
+        </section>
+
+        
+        <div class="w3-content" style="max-width:100%;">
+          {% for imagenes in fotoCoches %}  
+          <!-- Automatic Slideshow Images -->
+          <script type= "text/javascript" src="{% static 'js/fotos.js' %}"></script>
+          <div class="mySlides w3-display-container w3-center">
+            <img src="{{imagenes.fotoCoche.url}}"  style="width:50%">
+            
+          </div>
+        </script> 
+          {% endfor %}
+        </div>                
+      
+
+
+
+    {% else %}
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title">No existe este post.</h2>
+                <p class="post-meta">No existe este post.</p>
+            </header>
+            <div class="post-description">
+                <p>No existe este post.</p>
+            </div>
+        </section>
+    {% endif %}
+
+
+
+
+
+    <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="card-body">
+          <!-- comments -->
+          {% with comments.count as total_comments %}
+          <h2>{{ total_comments }} comments</h2>
+  
+          <p>
+            {% endwith %} {% for comment in comments %}
+          </p>
+  
+          <div class="comments" style="padding: 10px;">
+            <p class="font-weight-bold">
+              {{ comment.usuario }}
+              <span class=" text-muted font-weight-normal">
+                {{ comment.created_on }}
+              </span>
+            </p>
+            {{ comment.body | linebreaks }}
+          </div>
+  
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="card-body">
+          
+          {% if new_comment %}
+          <div class="alert alert-success" role="alert">
+            Your comment is awaiting moderation
+          </div>
+          {% else %}
+          {% if user.is_authenticated %}
+          <h3>Leave a comment</h3>
+          <form method="post" style="margin-top: 1.3em;">
+            
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6 mb-0">
+                {{comment_form.body|as_crispy_field}}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+          </form>
+          {%else%}
+            <a href="{% url 'login'%}" class="btn btn-primary  btn-lg">Iniciar sesion</a>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+  
+
+{% endblock %}
