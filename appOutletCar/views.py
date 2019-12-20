@@ -21,8 +21,7 @@ from django.utils.translation import gettext as _
 # Devuelve el listado de posts
 
 def index(request):
-    text = _("this is some random text")
-    return render(request, 'aÃ±adirCoche.html', { 'text': text })
+    return render(request, 'añadirCoche.html')
 
 
 def ajax(request, coche_id):
