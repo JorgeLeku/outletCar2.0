@@ -8,8 +8,7 @@ router = routers.SimpleRouter()
 router.register('coches', CocheViewSet)
 urlpatterns = [
     
-    #url(r'^$', views.index, name='index'),
-    #url(r'^i18n/', include('django.conf.urls.i18n')),
+    
 
     path('', views.HomePageView.as_view(), name='home'),
     path('postAjax/<int:coche_id>/', views.ajax, name='ajax'),

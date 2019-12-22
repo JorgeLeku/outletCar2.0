@@ -181,7 +181,7 @@ def DetailViewCoches(request, coche_id):
 
 
 def index(request):
-    return render(request,'appOutletCar/home.html')
+    return render(request,'appOutletCar/index.html')
 
 
 
@@ -191,7 +191,7 @@ def special(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect(reverse('index'))
 def register(request):
     registered = False
     if request.method == 'POST':
@@ -225,7 +225,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('home'))
+                return HttpResponseRedirect(reverse('index'))
             else:
                 return HttpResponse("Your account was inactive.")
         else:

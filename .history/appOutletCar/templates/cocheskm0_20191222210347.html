@@ -35,29 +35,12 @@
         </div>
     </div>
 </div>
-
 <div class="content pure-u-1 pure-u-md-3-4">
     <div class="pricing-tables pure-g">
         
         {% if filter.qs %}
             {% for coche in filter.qs %}
             {% if coche.estado == 'Km0' %}
-
-            <div id="app1">
-                <ol>
-                    <li v-for="l in marcas">
-                        {{l}}
-                    </li>
-                </ol>
-            </div>
-            <script type="text/javascript">
-            var app = new Vue({
-                el:'#app1',
-                data:{
-                    marcas:[{{coche}}]
-                }
-            })
-            </script>
                 <div class="pure-u-1 pure-u-md-1">
                     <div class="pricing-table pricing-table-free">
                         <div class="pricing-table-header">
