@@ -8,7 +8,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 app_name='appOutletCar'
 router = routers.SimpleRouter()
 urlpatterns = [
-    path('cochess/', views.CocheList.as_view()),
+    path('cochess', views.CocheList.as_view(), name='cochess'),
     path('cochess/<int:pk>/', views.CocheDetail.as_view()),
     path('', views.HomePageView.as_view(), name='home'),
     path('postAjax/<int:coche_id>/', views.ajax, name='ajax'),

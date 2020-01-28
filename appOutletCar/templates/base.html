@@ -38,7 +38,9 @@
                 	<li class="pure-menu-item"><a href="{% url 'login' %}" class="pure menu-link" >{% trans "INICIO SESION" %}</a></li>
                 	<li class="pure-menu-item"><a href="{% url 'appOutletCar:signup'%}" class="pure menu-link" class="sesion">{% trans "REGISTRATE" %}</a></li>
                 {% endif %}
-
+        {% if user.is_superuser %}
+        <li class="pure-menu-item pure-menu-selected"><a href="{% url 'appOutletCar:cochess'%}" class="pure-menu-link">{% trans "ADMIN" %}</a></li>
+        {% endif %}
             </ul>
         </div>
     </div>
