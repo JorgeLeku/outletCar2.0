@@ -52,6 +52,20 @@
                 <li class="pure-menu-item"><a href="https://www.facebook.com/OutletCar-104406484393552/?modal=admin_todo_tour" class="link">  Facebook  </a></li>
                 <li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="link">  Twitter  </a></li>
                 <li class="pure-menu-item"><a href="https://github.com/JorgeLeku/outletCar2.0" class="link">  GitHub  </a></li>
+		    
+		{% csrf_token %}
+		<input name="next" type="hidden" value="{{ redirect_to }}" />
+		<select name="language">
+			{% get_current_language as LANGUAGE_CODE %}
+			{% get_available_languages as LANGUAGES %}
+			{% for lang in LANGUAGES %}
+			<option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+				{{ lang.1 }} ({{ lang.0 }})
+			</option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="Go" />
+
             </ul>
         </div>
     </div>
