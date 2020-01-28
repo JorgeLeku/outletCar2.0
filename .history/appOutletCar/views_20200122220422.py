@@ -16,9 +16,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib import messages
 from django.forms import modelformset_factory
 from django.utils.translation import gettext as _
-from .serializer import CocheSerializer
-from rest_framework import generics
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 # Create your views here.
 # Devuelve el listado de posts
 
@@ -267,15 +265,18 @@ class quienesSomos(TemplateView):
 
 
 
+from .serializer import CocheSerializer
+
+from rest_framework import generics
 
 
 
-class CocheList(PermissionRequiredMixin, LoginRequiredMixin, generics.ListCreateAPIView):
+class CocheViewSet(generics.ListCreateAPIView):
   
     queryset = Coche.objects.all()
     serializer_class = CocheSerializer
-    permission_required = ('coche.can_edit', 'coche.can_view', 'coche.can_delete')
-class CocheDetail(PermissionRequiredMixin, LoginRequiredMixin, generics.RetrieveUpdateDestroyAPIView):
-    queryset = Coche.objects.all()
-    serializer_class = CocheSerializer
-    permission_required = ('coche.can_edit', 'coche.can_view', 'coche.can_delete')
+class SubscriptionDetail(generics.RetrieveUpdateDestroyAPIView):
+
+    queryset = Subscription.objects.all()
+
+    serializer_class = SubscriptionSerializer

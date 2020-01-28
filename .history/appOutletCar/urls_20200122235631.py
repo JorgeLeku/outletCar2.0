@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.urlpatterns import format_suffix_patterns
 app_name='appOutletCar'
 router = routers.SimpleRouter()
+
+
 urlpatterns = [
     path('cochess/', views.CocheList.as_view()),
     path('cochess/<int:pk>/', views.CocheDetail.as_view()),

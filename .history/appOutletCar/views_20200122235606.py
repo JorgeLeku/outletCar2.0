@@ -17,7 +17,7 @@ from django.contrib import messages
 from django.forms import modelformset_factory
 from django.utils.translation import gettext as _
 from .serializer import CocheSerializer
-from rest_framework import generics
+from rest_framework import genericsa
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 # Create your views here.
 # Devuelve el listado de posts

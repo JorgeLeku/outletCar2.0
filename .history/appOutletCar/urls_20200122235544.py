@@ -7,14 +7,21 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.urlpatterns import format_suffix_patterns
 app_name='appOutletCar'
 router = routers.SimpleRouter()
+
+
 urlpatterns = [
     path('cochess/', views.CocheList.as_view()),
     path('cochess/<int:pk>/', views.CocheDetail.as_view()),
+    #url(r'^$', views.index, name='index'),
+    #url(r'^i18n/', include('django.conf.urls.i18n')),
+
     path('', views.HomePageView.as_view(), name='home'),
     path('postAjax/<int:coche_id>/', views.ajax, name='ajax'),
     path('listaCochesNuevos', views.listaCochesNuevos.as_view(), name='listaCochesNuevos'),
     path('listaCochesSegunda', views.listaCochesSegunda.as_view(), name='listaCochesSegunda'),
     path('listaCocheskm0', views.listaCochesKm0.as_view(), name='listaCocheskm0'),
+    #path('listaCochesN', views.listaCochesN, name='listaCochesN'),
+    #path('<slug:slug>/', views.detail, name='detail'),
 
     path('detalle_coche/<int:coche_id>/', views.DetailViewCoches, name='detail'),
     path('', views.CocheCreateView.as_view(), name='cocheCreateView'),
