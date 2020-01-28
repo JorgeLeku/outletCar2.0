@@ -11,6 +11,7 @@
 {% endblock css %}
 {% block javascript %}
     <link type=""text/javascript"" href="{% static 'js/fotos.js' %}">
+
 {% endblock %}
 {% block contenido %}
 
@@ -73,33 +74,22 @@ body {font-family: "Lato", sans-serif}
       </div>
     </section> 
 
+
+
     {% if user.is_authenticated %}
-
-    <div id="app">
-      <p class="likeBtn" @click="persist">
-        <a class="fa fa-thumbs-up"></a>
-        <button v-on:click="counter++">Like</button>
-        <p>({counter})</p>
-      </p>
-    </div>
-    <script type="text/javascript">
-      const app = new Vue({
-            el: '#app',
-            data: {
-            counter: 0
-          },
-          
-          methods: {
-            persist() {
-              localStorage.counter = this.counter;
-            }
-          }
-        })
-      </script>
-
-      
+    
+   
+    
+   
 
 
+
+
+    {%else%}
+      <a href="{% url 'login'%}" class="btn btn-primary  btn-lg">Iniciar sesion</a>
+  {% endif %}
+
+    {% if user.is_authenticated %}
 
     {%else%}
       <a href="{% url 'login'%}" class="btn btn-primary  btn-lg">Iniciar sesion</a>

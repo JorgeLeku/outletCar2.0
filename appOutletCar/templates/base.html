@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{% static 'css/layouts/gallery.css' %}">
     {% endblock %}
     {% block javascript %}
+    
     {% endblock %}
 
 </head>
@@ -49,6 +50,36 @@
         
     {% endblock contenido %}
     <div class="footer">
+        {% if user.is_authenticated %}
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <div id="app1"> 
+            <input v-model="count" :readonly="true"></input>
+            <button v-on:click="count++" @click="persist">Like</button>
+        </div>
+        <script type="text/javascript">
+            const app1 = new Vue({
+            el:'#app1',
+            data: {
+                count:0,
+            },
+            mounted() {
+                if(localStorage.count) this.count = localStorage.count;
+            },
+            methods: {
+                persist() {
+                localStorage.count = this.count;
+                }
+            }
+            })
+        </script>
+         {%else%}
+         <a href="{% url 'login'%}" class="btn btn-primary  btn-lg">Iniciar sesion</a>
+     {% endif %}
+
+
+
+
+
         <div class="pure-menu pure-menu-horizontal">
             <ul>
                 <li class="pure-menu-item"><a href="https://www.facebook.com/OutletCar-104406484393552/?modal=admin_todo_tour" class="link">  Facebook  </a></li>
